@@ -1,4 +1,4 @@
-# My Company Webpage
+# My Company Webpage 📝
 
 Using [TypeScript](https://www.typescriptlang.org/), [NextJS](https://nextjs.org/) and [TailwindCSS](https://tailwindcss.com/)
 
