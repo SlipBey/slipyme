@@ -23,6 +23,20 @@ const App = ({ Component, pageProps }) => {
 
     return () => router.events.off("routeChangeComplete", handleRouteChange);
   }, [router.events]);
+	
+export function enableGoogleAdsense() {
+    const head = document.getElementsByTagName('head')[0]
+    const scriptElement = document.createElement(`script`)
+    scriptElement.type = `text/javascript`
+    scriptElement.async
+    scriptElement.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1698890000300860"
+    scriptElement.crossOrigin = "anonymous"
+    head.appendChild(scriptElement);
+}
+	
+	useEffet(() => {
+		enableGoogleAdsense();
+	});
 
   return (
     <>
@@ -84,16 +98,6 @@ const App = ({ Component, pageProps }) => {
 							});
 						`,
           }}
-        />
-        <Script
-          id="Adsense-id"
-          async
-          onError={(e) => {
-            console.error("Script failed to load", e);
-          }}
-          strategy="afterInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1698890000300860"
-          crossOrigin="anonymous"
         />
         <Script src="https://cdn.polyfill.io/v3/polyfill.min.js" />
         <Script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js" />
