@@ -92,7 +92,7 @@ const App = ({ Component, pageProps }) => {
    		onError={(e) => { console.error("Script failed to load", e); }}
 		strategy="afterInteractive"
  		src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1698890000300860"
-		crossorigin="anonymous"
+		crossOrigin="anonymous"
 	/>
         <DefaultSeo titleTemplate={CONFIG.SEO.layoutTitle} />
         <Component {...pageProps} />
