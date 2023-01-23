@@ -51,6 +51,11 @@ const nextConfig = {
         destination: "https://open.spotify.com/user/g8l0pnh50bxsyb932y052ma4h",
         permanent: true,
       },
+      {
+        source: "/basvuru",
+        destination: "https://docs.google.com/forms/d/1iAFuR5BHLPpISg3Cis7nyL2IalKW8HOGO21Zm62qgfo",
+        permanent: true,
+      },
     ];
   },
 };
