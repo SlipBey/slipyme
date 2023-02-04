@@ -70,7 +70,7 @@ const App = ({ Component, pageProps }) => {
           src={`https://www.googletagmanager.com/gtag/js?id=${CONFIG.GA_TRACKING_ID}`}
         />
         <Script
-          data-ad-client="ca-pub-9540952571907281"
+          data-ad-client="ca-pub-1698890000300860"
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         ></Script>
