@@ -1,6 +1,7 @@
 import enderrise from "@assets/projects/enderrise.svg";
 import code from "@assets/icon.svg";
 import design from "@assets/projects/design.svg";
+import deprem from "@assets/projects/slipymedeprem.svg";
 
 export const PROJECTS = [
   {
@@ -9,6 +10,12 @@ export const PROJECTS = [
     text: "Slipyme'nin Yazılımcılar için açmış olduğu yazılımcı platformudur. Platformda kod paylaşımları ve yardımlar yapılmaktadır.",
     link: "https://code.slipyme.com",
   },
+  {
+		icon: deprem,
+		text: "Slipyme Deprem",
+		alt: "Depremde ne yapılması gerekir, yardımcı olacak kaynaklar neler? Her şeyi en düzenli şekilde listelediğimiz bir yardımcı kaynak sistemi.",
+		link: "https://deprem.slipyme.com",
+	},
   {
     icon: design,
     title: "Slipyme Design",
