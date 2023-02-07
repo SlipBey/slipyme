@@ -11,11 +11,11 @@ export const PROJECTS = [
     link: "https://code.slipyme.com",
   },
   {
-		icon: deprem,
-		text: "Slipyme Deprem",
-		alt: "Depremde ne yapılması gerekir, yardımcı olacak kaynaklar neler? Her şeyi en düzenli şekilde listelediğimiz bir yardımcı kaynak sistemi.",
-		link: "https://deprem.slipyme.com",
-	},
+    icon: deprem,
+    title: "Slipyme Deprem",
+    text: "Depremde ne yapılması gerekir, yardımcı olacak kaynaklar neler? Her şeyi en düzenli şekilde listelediğimiz bir yardımcı kaynak sistemi.",
+    link: "https://deprem.slipyme.com",
+ },
   {
     icon: design,
     title: "Slipyme Design",
