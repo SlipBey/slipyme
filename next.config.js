@@ -28,7 +28,7 @@ const nextConfig = {
       },
       {
         source: "/youtube",
-        destination: "https://www.youtube.com/AngelCraftNW",
+        destination: "https://www.youtube.com/@SlipBeyYoutube/",
         permanent: true,
       },
       {
