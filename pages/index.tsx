@@ -10,10 +10,12 @@ const HomePage: NextPage = () => {
   return (
     <Layout title="Anasayfa">
       <Hero />
-      <About />
-      <Services />
-      <Project />
-      <Contact />
+      <div className="p-8">
+        <About />
+        <Services />
+        <Project />
+        <Contact />
+      </div>
     </Layout>
   );
 };

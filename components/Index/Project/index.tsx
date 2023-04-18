@@ -9,35 +9,33 @@ export const Project: FC = () => {
       <div className="container mx-auto">
         <div className="text-center mb-4">
           <h1 className="text-blue-800 font-bold text-4xl">Projelerimiz</h1>
-          <p className="text-gray-700 font-semibold text-medium mt-3">
-            Buradaki yer alan projeler, bize ait projeler, bünyemizde yer alan
-            projeler ve ortak olduğumuz projelerdir.
+          <p className="text-gray-700 font-semibold text-lg mt-3">
+            Slipyme'e ait yada Slipyme'nin adı altında açılmış/kurulmuş olan
+            projeler.
           </p>
         </div>
 
         <div className="mt-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {PROJECTS.map((project, index) => (
               <Link
                 href={project.link}
                 key={index}
-                className="text-black hover:text-black"
+                className="shadow-xl rounded-xl border-2 hover:shadow-2xl duration-300"
               >
-                <div className="text-center bg-white shadow-lg shadow-[#d0d7db] m-[20px] p-10 flex flex-col items-center rounded-tl-3xl rounded-b-3xl rounded-tr-md group">
-                  <span>
-                    <CustomImage
-                      className="w-36 group-hover:scale-105 duration-200 rounded-lg"
-                      src={project.icon}
-                      alt="Project Image"
-                    />
-                  </span>
+                <div className="flex flex-col items-center justify-center text-center gap-2 p-5">
+                  <CustomImage
+                    className="w-36 h-36 rounded-lg"
+                    src={project.icon}
+                    alt="Project Image"
+                  />
 
-                  <span className="mt-3">
-                    <h1 className="font-bold text-2xl">{project.title}</h1>
-                    <p className="font-semibold text-medium mt-2">
-                      {project.text}
-                    </p>
-                  </span>
+                  <h1 className="font-bold text-2xl text-black">
+                    {project.title}
+                  </h1>
+                  <p className="font-semibold text-lg text-gray-800">
+                    {project.text}
+                  </p>
                 </div>
               </Link>
             ))}

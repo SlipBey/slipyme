@@ -1,53 +1,72 @@
 import { FC } from "react";
-import { FaMobile, FaLaptopCode } from "react-icons/fa";
+import { FaLaptopCode, FaDiscord } from "react-icons/fa";
+import {
+  SiAdobeaftereffects,
+  SiAdobeillustrator,
+  SiAdobephotoshop,
+} from "react-icons/si";
 import { AiOutlineGlobal } from "react-icons/ai";
+import { Link } from "@components/Utils/Link";
 
 export const Services: FC = () => {
   const Service = [
     {
-      name: "Website",
-      text: "SEO'ya uygun, %99 Responsive, Sade ve kullanışlı arayüzlere sahip websiteleri yapmaktayız.",
+      name: "Web Tabanlı Sistemler",
+      text: "İstediğiniz bir websitesini tasarlar ve kodlarız ayrıca web tabanlı oyunlar, uygulamalar ve programlar kodlamaktayız.",
       icon: AiOutlineGlobal,
     },
     {
-      name: "Masaüstü Programlama",
-      text: "Platformu fark etmeksiniz istediğiniz masaüstü uygulamasını tasarlar/kodlarız. Dilerseniz websitenizi programa uyarlarız.",
+      name: "Gömülü Sistemler",
+      text: "Platformu fark etmeksizin her türlü masaüstü ve mobil uygulama geliştirmekteyiz.",
       icon: FaLaptopCode,
     },
     {
-      name: "Mobil Uygulama",
-      text: "Mobil uygulamalar için şuanlık PWA ile geliştirmeler yapmaktayız.",
-      icon: FaMobile,
+      name: "Discord Uygulamaları",
+      text: "Discord için uygulama ve botlar geliştirmekteyiz.",
+      icon: FaDiscord,
+    },
+    {
+      name: "Photoshop Hizmeti",
+      text: "İstediğiniz fotoğrafları veya tasarımları istediğiniz şekillerde düzenleyebiliriz.",
+      icon: SiAdobephotoshop,
+    },
+    {
+      name: "Tasarım Hizmeti",
+      text: "İstediğiniz bir logoyu, banneri, veya herhangi bir tasarımı sizin için tasarlayabiliriz.",
+      icon: SiAdobeillustrator,
+    },
+    {
+      name: "After Effects Hizmeti",
+      text: "İstediğiniz bir gifi tasarlayabiliriz veya istediğiniz bir videoya efekt eklemesi ve düzenlemesi yapabiliriz.",
+      icon: SiAdobeaftereffects,
     },
   ];
 
   return (
-    <section className="relative py-20 bg-gray-100" id="services">
+    <section className="relative py-20" id="services">
       <div className="container mx-auto">
         <div className="text-center mb-4">
           <h1 className="text-blue-800 font-bold text-4xl">Hizmetlerimiz</h1>
-          <p className="mt-3 text-xl font-semibold text-gray-800">
-            Yazılım sektörü için yardımcı kaynaklar, kod paylaşım sistemi,
-            yazılımcı forumu gibi projelerde bulunduk.
+          <p className="mt-3 text-gray-700 font-semibold text-lg">
+            Kendi projelerimiz haricinde de bulunduğumuz sektörler için ürün
+            hizmetimiz de bulunmaktadır.
             <br />
-            Tasarım sektörü için faaliyetlerimiz yakın bir zamanda hayata
-            geçirilecektir.
-            <br />
-            Farklı alanları kendi bünyemiz içerisinde dahil ettikçe yaptığımız
-            faaliyetleri bir o kadar arttırmak hedefindeyiz.
-            <br />
-            Ancak bunlar haricinde siz kullanıcılarımız için güvenlik bir
-            alışveriş ortamı sunma hedefindeyiz. Şuanda yapım aşamasında olan
-            sipariş modülümüz sayesinde istediğiniz gibi Slipyme'den ürün
-            alabilir ve yaptırabilirsiniz.
+            Sizden gelecek iş teklifleri veya istediğiniz bir ürün varsa bizimle{" "}
+            <Link
+              href="/#iletisim"
+              className="text-blue-500 hover:text-blue-600"
+            >
+              iletişim
+            </Link>{" "}
+            kurabilirsiniz.
           </p>
 
-          <div className="grid grid-cols-3 gap-3 mt-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-5">
             {Service.map((service, idx) => (
-              <div className="bg-gray-200 p-2 rounded-lg" key={idx}>
-                <service.icon className="text-blue-500 w-8 h-8 mx-auto mt-3" />
-                <h1 className="mt-2 font-semibold text-lg">{service.name}</h1>
-                <p className="text-semibold">{service.text}</p>
+              <div className="border-2 shadow-xl p-5 rounded-lg" key={idx}>
+                <service.icon className="text-blue-500 text-4xl mx-auto mt-3" />
+                <h1 className="mt-2 font-semibold text-xl">{service.name}</h1>
+                <p className="text-md font-semibold">{service.text}</p>
               </div>
             ))}
           </div>

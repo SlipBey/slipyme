@@ -9,11 +9,11 @@ import { PROJECTS } from "@libs/config/projects";
 export const Footer: FC = () => {
   const OTHER = [
     {
-      href: "/carrier",
+      href: "/basvuru",
       name: "Yetkili Başvurusu",
     },
     {
-      href: "/tester",
+      href: "/discord",
       name: "Tester Ol",
     },
     {

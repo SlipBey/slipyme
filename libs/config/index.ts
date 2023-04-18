@@ -1,9 +1,12 @@
 import { CONTACT } from "./account";
 
+const domain = "slipyme.com";
+
 const SEO = {
   layoutTitle: "%s - Slipyme",
   title: "Slipyme",
-  publishDomain: "https://www.slipyme.com",
+  domain,
+  publishDomain: `https://todolist.${domain}`,
   themeColor: "#2563eb",
   keywords: [
     "berkant",
@@ -33,8 +36,9 @@ const SEO = {
 };
 
 export const CONFIG = {
-  GA_TRACKING_ID: "G-B4FKG82G5X",
-  REVALIDATION: 60 * 5,
+  EMAIL: `contact@${SEO.domain}`,
+  GA_TRACKING_ID: "G-14SS6XWKC1",
+  DEV: process.env.NODE_ENV != "production",
   SEO,
   CONTACT,
 };

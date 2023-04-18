@@ -4,7 +4,7 @@ import { Link } from "@components/Utils/Link";
 
 export const Contact: FC = () => {
   return (
-    <section className="relative py-20 bg-gray-100" id="contact">
+    <section className="relative py-20" id="contact">
       <div className="container mx-auto">
         <div className="text-center mb-4">
           <h1 className="text-blue-800 font-bold text-4xl">İletişim</h1>

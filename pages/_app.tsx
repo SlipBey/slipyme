@@ -28,19 +28,17 @@ const App = ({ Component, pageProps }) => {
     <>
       <Head>
         <title>{CONFIG.SEO.title}</title>
+        <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href={Favicon} />
         <link rel="canonical" href={CONFIG.SEO.publishDomain} />
         <meta charSet="utf-8" />
         <meta name="HandheldFriendly" content="true" />
         <meta
           name="copyright"
-          content="Berkant Günaydın, gunaydinberkant13@gmail.com"
+          content="Berkant GÜNAYDIN, berkant@slipyme.com"
         />
         <meta name="theme-color" content={CONFIG.SEO.themeColor} />
-        <meta
-          name="author"
-          content="Berkant Günaydın, gunaydinberkant13@gmail.com"
-        />
+        <meta name="author" content="Berkant GÜNAYDIN, berkant@slipyme.com" />
         <meta name="keywords" content={CONFIG.SEO.keywords.join(",")} />
         <meta name="description" content={CONFIG.SEO.description} />
         <meta property="og:title" content={CONFIG.SEO.title} />
@@ -49,9 +47,8 @@ const App = ({ Component, pageProps }) => {
         <meta property="og:url" content={CONFIG.SEO.publishDomain} />
         <meta property="og:site_name" content={CONFIG.SEO.title} />
         <meta property="og:image" content={Favicon} />
-        <meta property="og:locale" content="en_GB" />
+        <meta property="og:locale" content="tr_TR" />
         <meta property="og:locale:alternate" content="tr_TR" />
-        <meta property="og:locale:alternate" content="en_US" />
         <meta property="twitter:url" content={CONFIG.SEO.publishDomain} />
         <meta property="twitter:title" content={CONFIG.SEO.title} />
         <meta property="twitter:description" content={CONFIG.SEO.description} />

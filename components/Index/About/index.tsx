@@ -25,7 +25,7 @@ export const About: FC = () => {
       <div className="container mx-auto">
         <div className="text-center mb-4">
           <h1 className="text-blue-800 font-bold text-4xl">Hakkımızda</h1>
-          <p className="text-gray-700 font-semibold text-medium mt-3">
+          <p className="text-gray-700 font-semibold text-lg mt-3">
             Slipyme farklı hizmet sektörlerinde hizmet vererek, bütün hizmetleri
             bir çatı altına toplamak için kurulmuştur.
             <br />
@@ -33,8 +33,7 @@ export const About: FC = () => {
             <b>Grafik Tasarım</b> ve <b>Oyun</b> sektörlerinde hizmet
             vermekteyiz.
             <br />
-            İleriki zamanlarda ise daha fazla sektörde hizmet vermeyi
-            hedefliyoruz.
+            İleri tarihlerde ise daha fazla sektörde hizmet vereceğiz.
           </p>
         </div>
 
@@ -48,7 +47,7 @@ export const About: FC = () => {
                 <h3 className="font-semibold text-xl text-gray-900">
                   {about.title}
                 </h3>
-                <p className="font-medium text-sm text-gray-800">
+                <p className="font-medium text-medium text-gray-800">
                   {about.text}
                 </p>
               </div>
