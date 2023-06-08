@@ -2,6 +2,7 @@ import code from "@assets/icon.svg";
 import design from "@assets/projects/design.svg";
 import deprem from "@assets/projects/slipymedeprem.svg";
 import todolist from "@assets/projects/todolist.svg";
+import botlist from "@assets/projects/botlist.svg";
 
 export const PROJECTS = [
   {
@@ -9,6 +10,12 @@ export const PROJECTS = [
     title: "Slipyme Code",
     text: "Slipyme'nin Yazılımcılar için açmış olduğu yazılımcı platformudur. Platformda kod paylaşımları ve yardımlar yapılmaktadır.",
     link: "https://code.slipyme.com",
+  },
+  {
+    icon: botlist,
+    title: "Slipyme Botlist",
+    text: "Slipyme'nin Discord Botlist ve Serverlist Projesi!",
+    link: "https://botlist.slipyme.com",
   },
   {
     icon: todolist,
