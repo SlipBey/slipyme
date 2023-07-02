@@ -3,10 +3,10 @@ import { CONTACT } from "./account";
 const domain = "slipyme.com";
 
 const SEO = {
-  layoutTitle: "%s - Slipyme",
-  title: "Slipyme",
+  layoutTitle: "%s - Slipyme Company",
+  title: "Slipyme Company",
   domain,
-  publishDomain: `https://todolist.${domain}`,
+  publishDomain: `https://wwww.${domain}`,
   themeColor: "#2563eb",
   keywords: [
     "berkant",

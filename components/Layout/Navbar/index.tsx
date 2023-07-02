@@ -6,8 +6,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { CustomImage } from "@components/Utils/CustomImage";
 import classNames from "classnames";
 import icon from "@assets/icon.svg";
-import { CONFIG } from "@libs/config";
-import { Modal } from "@components/Utils/Modal";
 import { Button } from "@components/Utils/Button";
 
 export const Navbar: FC = () => {
@@ -76,7 +74,7 @@ export const Navbar: FC = () => {
               alt="Navbar Logo"
             />
             <span className="self-center text-xl font-semibold whitespace-nowrap">
-              Slipyme
+              Slipyme Company
             </span>
           </Link>
           <div className="flex items-center lg:order-2">

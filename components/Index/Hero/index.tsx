@@ -21,24 +21,14 @@ export const Hero: FC = () => {
             <li></li>
           </ul>
 
-          <div className="m-0 p-9 relative">
-            <div className="relative z-5">
-              <div className="container">
-                <div className="flex flex-wrap mx-16 my-24 justify-center">
-                  <div className="text-center">
-                    <h1 className="font-bold text-6xl text-white block mb-5">
-                      Slipyme
-                    </h1>
-                    <h1 className="font-bold text-6xl text-white block mb-5">
-                      Farklı Sektörlerde Kaliteli Hizmetler
-                    </h1>
-                    <p className="font-semibold text-3xl text-gray-200 mb-5">
-                      Yazılım, Grafik Tasarım ve Oyun sektörlerinde hizmet.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="m-0 p-8 z-5 top-32 relative text-center">
+            <h1 className="font-bold text-2xl md:text-4xl lg:text-6xl text-white flex flex-col gap-2">
+              <div>Slipyme Company</div>
+              <div>Farklı Sektörlerde Kaliteli Hizmetler</div>
+            </h1>
+            <p className="mt-5 font-semibold text-xl md:text-2xl lg:text-3xl text-gray-200">
+              Yazılım, Grafik Tasarım ve Oyun sektörlerinde hizmet.
+            </p>
           </div>
         </div>
       </div>

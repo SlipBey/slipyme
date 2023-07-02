@@ -18,6 +18,13 @@ export const Contact: FC = () => {
               </Link>
             ))}
           </div>
+          <div className="mt-5 flex justify-center">
+            <Link href="https://slip.slipyme.com/contact">
+              <button className="bg-blue-600 text-white py-2 px-5 rounded-xl text-lg font-lg hover:bg-blue-700 duration-200">
+                İletişim Formu
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
