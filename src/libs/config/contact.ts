@@ -13,7 +13,7 @@ export const CONTACT = [
   {
     icon: FiPhone,
     title: "phone",
-    text: "(542) 642 5697",
+    text: "-",
   },
   {
     icon: FiMail,
