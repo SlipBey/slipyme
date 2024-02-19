@@ -7,7 +7,7 @@ const SEO = {
   title: "Slipyme Company",
   domain,
   publishDomain: `https://wwww.${domain}`,
-  themeColor: "#6D28D9",
+  themeColor: "#2563eb",
   keywords: [
     "Slipyme Company",
     "Slipyme şirketi",
