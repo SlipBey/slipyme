@@ -1,0 +1,54 @@
+{
+  "home": "Anasayfa",
+  "about": "Hakkımızda",
+  "aboutTitle": "Biz Kimiz",
+  "projects": "Projelerimiz",
+  "products": "Ürünlerimiz",
+  "contact": "Bize Ulaşın",
+  "phone": "Telefon",
+  "mail": "E-Posta",
+  "adress": "Adres",
+  "wwd": "Neler Yapıyoruz",
+
+  "homeHeroTitle": "Yazılım Geliştirme ve Grafik Tasarım",
+  "homeHeroText": "Her türlü işinizde yardımcı olmak için buradayız.",
+
+  "homeAboutText1": "Slipyme, çeşitli sektörlerde üst düzey hizmet sunma amacıyla kurulmuştur. Misyonumuz, faaliyet gösterdiğimiz sektörleri birbirleriyle entegre ederek kaliteli çözümler ortaya koymaktır. Şu anda, yazılım, tasarım ve oyun sektörlerinde etkinlik göstermekteyiz. Yazılım alanında, mobil, masaüstü, web tabanlı, website, gömülü, elektronik ve Arduino gibi geniş bir yelpazede projeler gerçekleştiriyoruz.",
+  "homeAboutText2": "Yazılım felsefemiz, kişiye özel ve kişiselleştirilebilir paket yazılımlar üreterek projelerde benzersiz çözümler sunmaktır. Tasarım konusunda, grafik tasarım alanında uzmanlaşmış olup, müşteri taleplerine uygun tasarımlar ortaya çıkarıyoruz. Tasarım projelerimizde, görsel unsurları yazılım projelerimizle entegre ediyor veya müşteri ihtiyaçları doğrultusunda satışa sunuyoruz. Kendi geliştirdiğimiz algoritma araçları ve yapay zekalar ile işler yürütüyoruz. İnsanlar, bizden daha kesin ifadeler bekledikleri için bu alanda da müşteri odaklı çözümler üretme hedefindeyiz.",
+
+  "carrier": "Kariyer",
+  "carrierTitle": "Slipyme'de Çalışmak",
+  "carrierText": "Kendinize en uygun iş ilanından başvuru yapabilirsiniz.",
+
+  "jobsTitle": "İş İlanları",
+  "work": "Uzaktan/Freelance",
+  "workTitle": "Slipyme Ekip Üyesi Başvuru Formu",
+  "workText": "Lütfen yazılım yada tasarım alanlarından herhangi biriyle ilgiliyseniz başvuru yapınız. Sahte ve gerçek dışı başvuruları atan kişiler tespit edip yasaklanmaktadır.<br/> <br/> Şartlar:<br/> -Ortalama düzeyde sektör bilgisine sahip olmak.<br/> -Yazılımcıysanız en az bir dile hakim olmak, tasarımcıysanız ai, pr, ps veya ae alanına/alanlarına hakim olmak.<br/> -Yönetimin düzenlediği toplantılara düzenli şekilde katılım göstermek.",
+  "software": "Yazılım Geliştirici",
+  "designer": "Grafik Tasarımcı",
+  "tester": "Testçi",
+  "old": "Yaşınız",
+  "oldInput": "Yaşınızı giriniz",
+  "discord": "Discord Adınız",
+  "discordInput": "Discord adınızı giriniz",
+  "position": "Mevkiniz",
+  "interest": "İlgilendiğiniz Alan(lar)",
+  "experience": "Hakim olduğunuz teknolojiler (diller, kütüphaneler veya frameworkler)",
+  "experienceInput": "Bildiğiniz teknolojileri giriniz",
+
+  "web": "Website",
+  "mobile": "Mobil Uygulama",
+  "program": "Masaüstü Programlama",
+  "micro": "Mikrodenetleyici Programlama",
+
+  "name": "İsim & Soyisim",
+  "nameInput": "İsminizi ve soyisminizi giriniz",
+  "mailInput": "E-posta adresinizi giriniz",
+  "phoneInput": "Telefon numarasını giriniz",
+  "message": "Mesaj",
+  "messageInput": "Mesajınızı yazınız",
+  "send": "Gönder",
+  "clear": "Temizle",
+
+  "nonSelectError": "Lütfen boş alan bırakmayınız."
+}

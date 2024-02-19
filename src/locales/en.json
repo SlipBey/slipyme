@@ -1,0 +1,54 @@
+{
+  "home": "Homepage",
+  "about": "About Us",
+  "aboutTitle": "Who Are We",
+  "projects": "Our Projects",
+  "products": "Our Products",
+  "contact": "Contact Us",
+  "phone": "Phone",
+  "mail": "E-Mail",
+  "adress": "Adress",
+  "wwd": "What We Do",
+
+  "homeHeroTitle": "Software Development and Graphics Designing",
+  "homeHeroText": "We are here to help you with all your business.",
+
+  "homeAboutText1": "Slipyme was established with the aim of providing high-level service in various sectors. Our mission is to provide quality solutions by integrating the sectors in which we operate. Currently, we are active in the software, design and gaming sectors. In the field of software, we carry out a wide range of projects such as mobile, desktop, web-based, website, embedded, electronic and Arduino.",
+  "homeAboutText2": "Our software philosophy is to offer unique solutions in projects by producing personalized and customizable package software. We specialize in design and graphic design and create designs that meet customer demands. In our design projects, we integrate visual elements with our software projects or offer them for sale in line with customer needs. We carry out business with algorithm tools and artificial intelligence that we have developed ourselves. Since people expect more precise statements from us, we aim to produce customer-oriented solutions in this field as well..",
+
+  "carrier": "Carrier",
+  "carrierTitle": "Working at Slipyme",
+  "carrierText": "You can apply from the job posting that best suits you.",
+
+  "jobsTitle": "Job Postings",
+  "work": "Remote/Freelance",
+  "workTitle": "Slipyme Team Member Application Form",
+  "workText": "Please apply if you are interested in any of the software or design fields. People who submit fake and unreal applications are detected and banned.<br/> <br/> Conditions:<br/> -Have average level of industry knowledge.<br/> -If you are a software developer, you must have command of at least one language, if you are a designer, you must have knowledge of ai, pr Having knowledge of , ps or ae field(s).<br/> -Regularly participating in the meetings organized by the management.",
+  "software": "Software Developer",
+  "designer": "Graphic Designer",
+  "tester": "Tester",
+  "old": "Your Age",
+  "oldInput": "Enter your age",
+  "discord": "Your discord name",
+  "discordInput": "Enter your discord name",
+  "position": "Your position",
+  "interest": "Areas of Interest",
+  "experience": "Technologies you master (languages, libraries or frameworks)",
+  "experienceInput": "Enter the technologies you know",
+
+  "web": "Website",
+  "mobile": "Mobile Application",
+  "program": "Desktop Programming",
+  "micro": "Microcontroller Programming",
+
+  "name": "Name & Surname",
+  "nameInput": "Enter your name and surname",
+  "mailInput": "Enter your Email",
+  "phoneInput": "Enter your phone",
+  "message": "Message",
+  "messageInput": "Enter your message",
+  "send": "Send",
+  "clear": "Clear",
+
+  "nonSelectError": "Please do not leave empty space."
+}
