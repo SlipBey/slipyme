@@ -38,7 +38,6 @@ export const CarrierForm: React.FC<ICarrier> = ({
           type={input.type}
           name={input.title}
           placeholder={parser.get(input.title || "" + "Input")}
-          required
           minLength={2}
         />
       )}
