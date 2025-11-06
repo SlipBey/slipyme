@@ -1,47 +1,37 @@
-import { PROJECTS } from "./projects";
-
 export const PAGES = [
   {
-    text: "about",
-    url: "/#about",
+    text: "general.about",
+    url: "/about",
   },
   {
-    text: "projects",
-    url: "/#projects",
+    text: "general.projects",
+    url: "/projects",
   },
-  // {
-  //   text: "products",
-  //   url: "/#products",
-  // },
   {
-    text: "contact",
-    url: "/#contact",
+    text: "general.contact",
+    url: "/contact",
   },
 ];
 
-export const FOOTER = [
-  [
-    {
-      href: "/mail",
-      text: "contact@slipyme.com",
-    },
-  ],
-  PROJECTS.slice(0, 3).map((project) => ({
-    href: project.url.link ? project.url.link : project.url.github || "#",
-    text: project.title,
-  })),
-  [
-    {
-      text: "Privacy Policy",
-      href: "/privacy",
-    },
-    {
-      text: "Yetkili Başvuru",
-      href: "/carrier",
-    },
-    {
-      text: "Tester Ol",
-      href: "/carrier#tester",
-    },
-  ],
+export const SHORT_LINKS = [
+  { name: "footer.links.career", href: "/career" },
+  { name: "footer.links.media", href: "/media" },
+  { name: "footer.links.sr", href: "/social-responsibility" },
+  { name: "general.social", href: "/social" },
+];
+
+export const FOOTER_PAGES = [
+  {
+    title: "footer.legal.corporate",
+    pages: SHORT_LINKS,
+  },
+  {
+    title: "footer.legal.policies",
+    pages: [
+      { name: "footer.links.kvkk", href: "/policies/kvkk" },
+      { name: "footer.links.tos", href: "/policies/tos" },
+      { name: "footer.links.privacy", href: "/policies/privacy" },
+      { name: "footer.links.cookies", href: "/policies/privacy" },
+    ],
+  },
 ];

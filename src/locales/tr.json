@@ -1,54 +1,517 @@
 {
-  "home": "Anasayfa",
-  "about": "Hakkımızda",
-  "aboutTitle": "Biz Kimiz",
-  "projects": "Projelerimiz",
-  "products": "Ürünlerimiz",
-  "contact": "Bize Ulaşın",
-  "phone": "Telefon",
-  "mail": "E-Posta",
-  "adress": "Adres",
-  "wwd": "Neler Yapıyoruz",
-
-  "homeHeroTitle": "Yazılım Geliştirme ve Grafik Tasarım",
-  "homeHeroText": "Her türlü işinizde yardımcı olmak için buradayız.",
-
-  "homeAboutText1": "Slipyme, çeşitli sektörlerde üst düzey hizmet sunma amacıyla kurulmuştur. Misyonumuz, faaliyet gösterdiğimiz sektörleri birbirleriyle entegre ederek kaliteli çözümler ortaya koymaktır. Şu anda, yazılım, tasarım ve oyun sektörlerinde etkinlik göstermekteyiz. Yazılım alanında, mobil, masaüstü, web tabanlı, website, gömülü, elektronik ve Arduino gibi geniş bir yelpazede projeler gerçekleştiriyoruz.",
-  "homeAboutText2": "Yazılım felsefemiz, kişiye özel ve kişiselleştirilebilir paket yazılımlar üreterek projelerde benzersiz çözümler sunmaktır. Tasarım konusunda, grafik tasarım alanında uzmanlaşmış olup, müşteri taleplerine uygun tasarımlar ortaya çıkarıyoruz. Tasarım projelerimizde, görsel unsurları yazılım projelerimizle entegre ediyor veya müşteri ihtiyaçları doğrultusunda satışa sunuyoruz. Kendi geliştirdiğimiz algoritma araçları ve yapay zekalar ile işler yürütüyoruz. İnsanlar, bizden daha kesin ifadeler bekledikleri için bu alanda da müşteri odaklı çözümler üretme hedefindeyiz.",
-
-  "carrier": "Kariyer",
-  "carrierTitle": "Slipyme'de Çalışmak",
-  "carrierText": "Kendinize en uygun iş ilanından başvuru yapabilirsiniz.",
-
-  "jobsTitle": "İş İlanları",
-  "work": "Uzaktan/Freelance",
-  "workTitle": "Slipyme Ekip Üyesi Başvuru Formu",
-  "workText": "Lütfen yazılım yada tasarım alanlarından herhangi biriyle ilgiliyseniz başvuru yapınız. Sahte ve gerçek dışı başvuruları atan kişiler tespit edip yasaklanmaktadır.<br/> <br/> Şartlar:<br/> -Ortalama düzeyde sektör bilgisine sahip olmak.<br/> -Yazılımcıysanız en az bir dile hakim olmak, tasarımcıysanız ai, pr, ps veya ae alanına/alanlarına hakim olmak.<br/> -Yönetimin düzenlediği toplantılara düzenli şekilde katılım göstermek.",
-  "software": "Yazılım Geliştirici",
-  "designer": "Grafik Tasarımcı",
-  "tester": "Testçi",
-  "old": "Yaşınız",
-  "oldInput": "Yaşınızı giriniz",
-  "discord": "Discord Adınız",
-  "discordInput": "Discord adınızı giriniz",
-  "position": "Mevkiniz",
-  "interest": "İlgilendiğiniz Alan(lar)",
-  "experience": "Hakim olduğunuz teknolojiler (diller, kütüphaneler veya frameworkler)",
-  "experienceInput": "Bildiğiniz teknolojileri giriniz",
-
-  "web": "Website",
-  "mobile": "Mobil Uygulama",
-  "program": "Masaüstü Programlama",
-  "micro": "Mikrodenetleyici Programlama",
-
-  "name": "İsim & Soyisim",
-  "nameInput": "İsminizi ve soyisminizi giriniz",
-  "mailInput": "E-posta adresinizi giriniz",
-  "phoneInput": "Telefon numarasını giriniz",
-  "message": "Mesaj",
-  "messageInput": "Mesajınızı yazınız",
-  "send": "Gönder",
-  "clear": "Temizle",
-
-  "nonSelectError": "Lütfen boş alan bırakmayınız."
+  "general": {
+    "home": "Anasayfa",
+    "about": "Hakkımızda",
+    "projects": "Projelerimiz",
+    "contact": "İletişim",
+    "more": "Daha Fazlası",
+    "csr": "Sosyal Sorumluluk",
+    "social": "Sosyal Medya",
+    "notfound": "Sayfa Yok"
+  },
+  "navbar": {
+    "button": {
+      "project": "Projeniz mi var?",
+      "contact": "İletişime Geçelim"
+    }
+  },
+  "about": "Slipyme, çeşitli sektörlerde üst düzey hizmet sunma amacıyla kurulmuştur. Misyonumuz, faaliyet gösterdiğimiz sektörleri birbirleriyle entegre ederek kaliteli çözümler ortaya koymaktır. Şu anda, yazılım, tasarım ve oyun sektörlerinde etkinlik göstermekteyiz. Yazılım alanında, mobil, masaüstü, web tabanlı, website, gömülü, elektronik ve Arduino gibi geniş bir yelpazede projeler gerçekleştiriyoruz. \n\n Yazılım felsefemiz, kişiye özel ve kişiselleştirilebilir paket yazılımlar üreterek projelerde benzersiz çözümler sunmaktır. Tasarım konusunda, grafik tasarım alanında uzmanlaşmış olup, müşteri taleplerine uygun tasarımlar ortaya çıkarıyoruz. Tasarım projelerimizde, görsel unsurları yazılım projelerimizle entegre ediyor veya müşteri ihtiyaçları doğrultusunda satışa sunuyoruz. Kendi geliştirdiğimiz algoritma araçları ve yapay zekalar ile işler yürütüyoruz. İnsanlar, bizden daha kesin ifadeler bekledikleri için bu alanda da müşteri odaklı çözümler üretme hedefindeyiz.",
+  "contact": {
+    "emails": {
+      "contact": "Genel",
+      "media": "İş Teklifleri, Sponsorluk vb",
+      "jobs": "İş Başvuruları"
+    },
+    "subjects": {
+      "label": "Konu",
+      "general": "Genel İletişim",
+      "project": "Proje / Teklif",
+      "collab": "İşbirliği",
+      "support": "Teknik Destek"
+    },
+    "description": "Bizimle iletişime geçmek için formu doldurabilirsiniz.",
+    "name": {
+      "label": "Ad & Soyad",
+      "placeholder": "Ad Soyad"
+    },
+    "mail": {
+      "label": "E-Posta"
+    },
+    "phone": {
+      "label": "Telefon"
+    },
+    "message": {
+      "label": "Mesajınız",
+      "placeholder": "Mesajınız"
+    },
+    "button": "Gönder",
+    "sending": "Gönderiliyor"
+  },
+  "projects": {
+    "explore": "İncele",
+    "site": "Site",
+    "github": "Github",
+    "details": {
+      "open": "Detay",
+      "prev": "Önceki",
+      "next": "Sonraki",
+      "clickToOpen": "Görsele Tıkla"
+    },
+    "items": {
+      "code": {
+        "title": "Slipyme Code",
+        "excerpt": "Slipyme'nin Yazılımcı Platformu.",
+        "description": "Slipyme'nin Yazılımcılar için açmış olduğu yazılımcı platformudur. Platformda kod paylaşımları ve yardımlar yapılması planlanmaktaydı. Ancak bu proje hayata geçirilmeden direkt olarak sonlandırıldı. Şuanda başka bir proje ile bu isteğimizi bir bütün oluştmaktayız."
+      },
+      "botlist": {
+        "title": "Slipyme Botlist",
+        "excerpt": "Slipyme Discord Botlist ve Serverlist",
+        "description": "Slipyme'nin Discord Botlist ve Serverlist Projesiydi. Ancak Discord'un botlistleri engelleyecek olan sunucuya eklenecek bot sınırı olmasından dolayı proje sonlandırıldı. İlerde Serverlist olarak geri döndürmek üzere proje revize edilecek."
+      },
+      "todolist": {
+        "title": "Slipyme Todolist",
+        "excerpt": "Slipyme'nin Todolist Projesi",
+        "description": "Slipyme'nin Yenilikçi Todolist Projesi! Proje düşük kullanım sebebiyle kapatıldı. Ancak ilerde getireceğimiz projemiz ile todolist projesini birleştireceğiz."
+      },
+      "blog": {
+        "title": "Slipyme Blog",
+        "excerpt": "Slipyme'nin Blog Sitesi",
+        "description": "Slipyme'nin Kendine Ait Blog Projesi! Proje düşük kullanım seebebiyle kapatıldı. Ancak ilerde getireceğimiz projemiz ile blog sitemizi birleştireceğiz."
+      },
+      "deprem": {
+        "title": "Slipyme Deprem",
+        "excerpt": "Depremde ne yapılması gerekir, yardımcı olacak kaynaklar neler? Yardımcı bir kaynak sistemi",
+        "description": "2023 Şubatta yaşanan depremden sonra hazırladığımız bir wiki benzeri siteydi. Bu projeyi sosyal sorumluluk projesi olarak yapmıştık. Şimdi ise Afet Yönetimi projesi üzerine uğraşmaktayız. Bu projeyle Afet Yönetimi projesine başlamış bulunmaktayız."
+      },
+      "design": {
+        "title": "Slipyme Design",
+        "excerpt": "Slipyme'nin Tasarımcı Platformu.",
+        "description": "Slipyme'nin Tasarımcılar için kurmuş olduğu tasarımcı platformudur. Platformda hayalinize göre tasarımlar yaptırabilir veya teknik yardımlar almanız planlanmaktaydı. Ancak daha başka bir proje ile bu isteğimizi gerçekleştireceğimiz bir bütün oluşturmaktayız. O yüzden bu projeyi geliştirmeyi bıraktık ve şuanda sadece konsept olarak açık kalmaktadır."
+      },
+      "music": {
+        "title": "Slipyme Music",
+        "excerpt": "Slipyme'nin Müzik Platformu (Yakında!).",
+        "description": "Slipyme'nin Müzik sektörü için geliştirmiş olduğu bir websitesi. Slipyme Company olarak Slipyme Music adı altında müzik üretimleri yapıp bunları listleyeceğimiz bir sistem geliştirmekteyiz. Göseller konsept için ai ile oluşturulmuştur."
+      },
+      "game": {
+        "title": "Slipygame",
+        "excerpt": "Slipyme'nin Oyun Platformu (Yakında!).",
+        "description": "Slipyme'nin geliştirdiği oyunları yayınladığı platform. Platform içinde hem geliştirilen oyunlar sunulacak hem de içerisindeki bulunan mini oyunlarla vakit geçirebileceksiniz. Görseller konsept için ai ile oluşturulmuştur."
+      }
+    }
+  },
+  "slides": {
+    "software": {
+      "title": "Yazılım Geliştirme",
+      "text": "Modern teknolojiyle özel yazılımlar üretiyoruz.",
+      "button": {
+        "text": "Projeni Başlat"
+      }
+    },
+    "game": {
+      "title": "Oyun Geliştirme",
+      "text": "Eğlenceli ve bağımlılık yapan oyunlar tasarlıyoruz.",
+      "button": {
+        "text": "Detaylar"
+      }
+    },
+    "design": {
+      "title": "Grafik Tasarım",
+      "text": "Markanı öne çıkaracak özgün tasarımlar.",
+      "button": {
+        "text": "Portföyü Gör"
+      }
+    },
+    "social": {
+      "title": "Sosyal Medya",
+      "text": "Etkili sosyal medya stratejileri sunuyoruz.",
+      "button": {
+        "text": "Teklif Al"
+      }
+    }
+  },
+  "footer": {
+    "desc": "Slipyme, yazılım, grafik tasarım, oyun ve sosyal medya projeleriyle modern çözümler sunar.",
+    "newsletter": {
+      "title": "Yeniliklerden haberdar olun",
+      "desc": "Güncellemeler için e-posta listemize katılın",
+      "placeholder": "E-Posta adresi",
+      "button": "Abone Ol"
+    },
+    "legal": {
+      "corporate": "Kurumsal",
+      "policies": "Politikalar",
+      "copyright": "Slipyme Company"
+    },
+    "links": {
+      "sr": "Sosyal Sorumluluk",
+      "media": "Medya",
+      "career": "Kariyer",
+      "kvkk": "KVKK",
+      "tos": "Hizmet Şartları",
+      "privacy": "Gizlilik Politikası",
+      "cookies": "Çerez Politikası"
+    }
+  },
+  "error404": {
+    "title": "Böyle bir yer kalmadı...",
+    "description": "Bu sayfa bir zamanlar vardı, ama buzullar gibi eridi gitti.",
+    "redirect": "Ana sayfaya yönlendiriliyorsunuz...",
+    "imageAlt": "Üzgün Penguen",
+    "swimmingAlt": "Yüzen Penguen"
+  },
+  "valuesTitle": "Değerler & Vizyon",
+  "values": [
+    {
+      "title": "Güven",
+      "desc": "Veri güvenliği ve mahremiyet önceliğimizdir."
+    },
+    {
+      "title": "Kalite",
+      "desc": "Her teslimatta ölçülebilir başarı kriterleri."
+    },
+    {
+      "title": "Şeffaflık",
+      "desc": "Süreçler ve raporlamada açık iletişim."
+    },
+    {
+      "title": "Yenilikçilik",
+      "desc": "Ar-Ge ve modern teknolojilerle sürekli gelişim."
+    },
+    {
+      "title": "Sürdürülebilirlik",
+      "desc": "Uzun vadeli değer üreten kararlar."
+    },
+    {
+      "title": "Müşteri Odaklılık",
+      "desc": "İhtiyaca göre şekillenen çözümler."
+    }
+  ],
+  "timelineTitle": "Kısa Tarihçe",
+  "timeline": [
+    {
+      "y": "2021",
+      "t": "Kuruluş",
+      "d": "30 Ekim 2021 Tarihinde Slipyme Yazılım ismiyle ilk faaliyetimize başladık. 5 Kişilik bir ekip ile yola çıktık ve freelance işler yapmaya başladık."
+    },
+    {
+      "y": "2022",
+      "t": "İlk Büyüme Adımları",
+      "d": "22 Mart 2022 Tarihinde Slipyme Company adına geçip projelerimizi aktif etmeye başladık. Kendi projerlimizi aktif ettikçe bilinirlik kazanmaya başladık."
+    },
+    {
+      "y": "2023",
+      "t": "İlk Sonuçlar",
+      "d": "Kurduğumuz projeler bize ilk meyvelerini vermeye başladı. Gelecek planlarımızı düzgün bir şekilde yapıp önümüzü görmeye başladık."
+    },
+    {
+      "y": "2024",
+      "t": "Büyümeye Başlama",
+      "d": "3 Yıl boyunca ekibimiz belli bir stabilitede ilerliyordu. 8-10 Kişilik bir ekipten 17 kişilik bir ekibe dönüştük ve freelance işleri bırakıp kendi projelerimize yöneldik."
+    },
+    {
+      "y": "2025",
+      "t": "Büyümeye Başlama",
+      "d": "Ani bir karar ile bütün projelerimizi durdurup yeni projelere başlangıç yaptık. 2026 Sonuna doğru 3 büyük projeyi hayata geçirmiş olmayı planlıyoruz."
+    }
+  ],
+  "expertiseTitle": "Uzmanlık Alanları",
+  "expertiseDesc": "Yazılım geliştirme, grafik tasarım, oyun ve sosyal medya alanlarında kapsamlı çözümler sunuyoruz.",
+  "whatWeDoTitle": "Ne Yapıyoruz?",
+  "whatWeDoDesc": "Farklı sektörlerde edindiğimiz deneyimle müşterilerimize yazılım, tasarım ve dijital çözümler üretiyoruz. Modern teknolojileri kullanarak her projeye özel yaklaşıyoruz.",
+  "cta": {
+    "title": "Projeniz mi var?",
+    "subtitle": "İhtiyacınızı konuşalım; en uygun çözümü birlikte kurgulayalım."
+  },
+  "projectsPage": {
+    "title": "Projelerimiz",
+    "subtitle": "Gerçek projelerimiz ve yazılım çözümlerimiz. Tasarım işlerimiz için stüdyomuza göz atın.",
+    "inactiveNote": "Bu proje şu an kullanımda değil.",
+    "types": {
+      "all": "Tümü",
+      "software": "Yazılım",
+      "design": "Tasarım",
+      "socialResponsibility": "Sosyal Sorumluluk",
+      "game": "Oyun",
+      "gameSoon": "SlipyGame Çok Yakında Sizlerle!",
+      "socialMedia": "Sosyal Medya"
+    },
+    "empty": "Filtrelere uyan proje bulunamadı.",
+    "badges": {
+      "active": "Aktif",
+      "inactive": "Pasif"
+    },
+    "solutions": {
+      "title": "Yazılım Çözümlerimiz",
+      "subtitle": "İhtiyaca göre paketlenmiş çözüm başlıklarımızla, hızlı başlangıç ve sürdürülebilir teslimat sunuyoruz."
+    },
+    "groups": {
+      "software": "Yazılım Projeleri",
+      "design": "Tasarım Projeleri"
+    },
+    "cta": {
+      "title": "Projenden bahsetmeye hazır mısın?",
+      "subtitle": "İhtiyacını anlat, birlikte en uygun çözümü tasarlayalım.",
+      "button": "Projen Hakkında Konuşalım"
+    }
+  },
+  "solutionsPage": {
+    "mobile": {
+      "title": "Mobil Uygulamalar",
+      "desc": "iOS ve Android için performanslı, modern mobil uygulamalar."
+    },
+    "web": {
+      "title": "Web Uygulamaları",
+      "desc": "Web tabanlı geliştirilen web uygulamaları."
+    },
+    "discord": {
+      "title": "Discord Botları",
+      "desc": "Topluluk yönetimi için özelleştirilmiş Discord bot çözümleri."
+    },
+    "erp": {
+      "title": "ERP Çözümleri",
+      "desc": "Kurumsal süreçlerinizi uçtan uca yönetebileceğiniz modüller."
+    },
+    "ecom": {
+      "title": "E-Ticaret",
+      "desc": "Satış ve ödeme altyapısı entegre, kullanıcı dostu e-ticaret sistemleri."
+    },
+    "ai": {
+      "title": "Yapay Zeka",
+      "desc": "Özel modeller oluşturma ve algoritma çözümleri."
+    },
+    "cms": {
+      "title": "CMS",
+      "desc": "İçeriklerinizi kolayca yönetebileceğiniz esnek CMS çözümleri."
+    },
+    "corp": {
+      "title": "Kurumsal Web",
+      "desc": "Şirket tanıtımı, portföy ve hizmet siteleri için modern tasarımlar."
+    },
+    "seo": {
+      "title": "SEO & Analiz",
+      "desc": "Arama görünürlüğü, içerik denetimi, rakip analizi ve otomatik SEO botları."
+    }
+  },
+  "design": {
+    "showcase": {
+      "title": "Örnek Tasarımlar",
+      "cta": "Daha fazla çalışma için Medya sayfasına git"
+    },
+    "solutions": {
+      "title": "Tasarım Hizmetlerimiz",
+      "subtitle": "Aşağıdaki alanlarda tasarım desteği sağlıyoruz.",
+      "ps": {
+        "title": "Photoshop",
+        "desc": "Görsel düzenleme, manipülasyon, banner ve sosyal medya görselleri."
+      },
+      "ai": {
+        "title": "Adobe Illustrator",
+        "desc": "Vektör illüstrasyon, logo ve kurumsal kimlik tasarımı."
+      },
+      "ae": {
+        "title": "After Effects",
+        "desc": "Motion graphic, animasyonlu intro/outro ve geçişler."
+      }
+    }
+  },
+  "media": {
+    "title": "Fotoğraflar",
+    "text": "Basın ve tanıtım görsellerini görüntüleyin. Materyallerimizin izinsiz kullanımı yasaktır.",
+    "categories": {
+      "all": "Tümü",
+      "logos": "Logolar",
+      "banners": "Bannerlar",
+      "others": "Diğer",
+      "buildings": "Binalar",
+      "mockups": "Mockuplar"
+    }
+  },
+  "csr": {
+    "text": "Topluma değer katan projeler ve sürdürülebilirlik adımları.",
+    "hero": {
+      "title": "Karbon ayak izimizi azaltıyor, yaşamı birlikte koruyoruz",
+      "subtitle": "Odaklarımız: karbon azaltım, hayvanları koruma ve iklim farkındalığı."
+    },
+    "pillars": {
+      "title": "Odaklarımız"
+    },
+    "initiatives": {
+      "title": "Girişimlerimiz"
+    },
+    "labels": {
+      "live": "Yayında",
+      "inProgress": "Devam ediyor",
+      "soon": "Yakında",
+      "eta": "Planlanan"
+    },
+    "announce": {
+      "title": "Bize Katıl",
+      "note": "Bağış ve gönüllülük başvuruları yakında. Altyapı hazırlıkları sürüyor.",
+      "donateText": "Bağış",
+      "volunteerText": "Gönüllü Ol"
+    },
+    "subscribe": {
+      "title": "Haberdar Olun",
+      "desc": "Bağış ve gönüllülük açıldığında ilk sizin haberiniz olsun.",
+      "placeholder": "E-posta adresiniz",
+      "button": "Bildirim Al"
+    },
+    "transparency": {
+      "title": "Şeffaflık",
+      "desc": "Bağış sistemi açıldığında, bağışçılara e-posta ile periyodik raporlar; ayrıca sitede her ay toplanan bağış ve alınan mama miktarı yayımlanacaktır."
+    },
+    "faqs": {
+      "title": "Sık Sorulanlar"
+    },
+    "dict": {
+      "pillars": {
+        "carbon": {
+          "title": "Karbon Azaltım",
+          "desc": "Enerji verimliliği, ölçümleme ve telafi."
+        },
+        "animals": {
+          "title": "Hayvanları Koruma",
+          "desc": "Barınma, beslenme ve tedavi destekleri."
+        },
+        "climate": {
+          "title": "İklim Farkındalığı",
+          "desc": "Eğitim, atölye ve topluluk etkinlikleri."
+        },
+        "safety": {
+          "title": "Doğa Güvenliği",
+          "desc": "Afet ve sıcak hava risklerine hazırlık."
+        }
+      },
+      "initiatives": {
+        "ofisKarbonOlcum": {
+          "title": "Ofis Karbon Ayak İzi Ölçümleme",
+          "desc": "Elektrik, ısıtma ve lojistik kaynaklı emisyonların takibi ve raporlanması."
+        },
+        "afetYonetim": {
+          "title": "Afet Yönetim Projesi",
+          "desc": "Gönüllü koordinasyonu, malzeme envanteri ve acil iletişim akışlarının dijitalleşmesi."
+        },
+        "hayvanBakimSim": {
+          "title": "Hayvan Bakım Simülasyonu",
+          "desc": "Gençlere yönelik sanal bakım senaryoları ile sorumluluk ve empati geliştirme."
+        },
+        "yesilLojistik": {
+          "title": "Yeşil Lojistik",
+          "desc": "Kargo/ziyaret rotalarında karbon azaltım odaklı planlama ve telafi."
+        },
+        "sogukZincirMama": {
+          "title": "Soğuk Zincir Mama Desteği",
+          "desc": "Yüksek sıcaklıklarda mama kalitesini korumaya yönelik tedarik ve dağıtım modeli."
+        }
+      },
+      "faqs": {
+        "bagis": {
+          "q": "Şu anda bağış yapabilir miyim?",
+          "a": "Henüz değil. Sistem açıldığında bu sayfadan duyuracağız ve e-posta bildirimi göndereceğiz."
+        },
+        "rapor": {
+          "q": "Bağış raporları nasıl paylaşılacak?",
+          "a": "Bağış sistemi açıldığında bağışçılara e-posta ile ilerleme raporları, ayrıca sitede aylık bağış ve mama miktarı raporu yayımlanacaktır."
+        },
+        "gonullu": {
+          "q": "Gönüllü kabul ediyor musunuz?",
+          "a": "Altyapı tamamlandığında başvuru formu açılacak ve burada paylaşılacak."
+        }
+      }
+    },
+    "projectDetails": "Detayları Gör"
+  },
+  "social": {
+    "title": "Sosyal Medya Yönetimimiz",
+    "text": "Etkili sosyal medya yönetim stratejilerimiz ile size güzel içerikler sunuyoruz.",
+    "subtitle": "Slipyme bünyesindeki tüm sosyal medya hesaplarını tek çatı altında yönetiyor, içeriklerimizi milyonlara ulaştırıyoruz.",
+    "followUs": "Bizi Takip Et",
+    "statsTitle": "Kanal İstatistikleri",
+    "loading": {
+      "instagram": "Instagram gönderileri yükleniyor…",
+      "youtube": "YouTube videoları yükleniyor…",
+      "generic": "İstatikler Yükleniyor…"
+    },
+    "instagramTitle": "Instagram Gönderileri",
+    "youtubeTitle": "Son Videolar",
+    "stats": {
+      "subscribers": "Toplam Abone",
+      "views": "Toplam İzlenme",
+      "badges": {
+        "video": "Video",
+        "album": "Albüm",
+        "subs": "Abone",
+        "fallowers": "Takipçi",
+        "views": "İzlenme",
+        "media": "Gönderi",
+        "watch": "İzle"
+      },
+      "updatedAt": "Son Güncelleme Tarihi"
+    },
+    "viewMore": "Detaylar",
+    "accountsTitle": "Hesaplarımız",
+    "common": {
+      "retry": "Tekrar Dene"
+    },
+    "errors": {
+      "stats": "İstatistikler yüklenemedi, lütfen tekrar deneyin."
+    },
+    "featuresTitle": "Neler Yapıyoruz?",
+    "features": [
+      "İçerik planlama ve düzenli paylaşım",
+      "Kanal analizi ve raporlama",
+      "Topluluk yönetimi",
+      "Sponsorluk ve reklam iş birlikleri",
+      "Trend yakalama ve gündem içerikleri"
+    ],
+    "cta": {
+      "title": "İçeriğinizi büyütelim",
+      "subtitle": "Tüm sosyal medya hesaplarınızı tek çatı altında yönetip doğru kitleye ulaştırıyoruz.",
+      "secondary": "Hesaplarımızı gör"
+    },
+    "contactBtn": "İletişime Geç"
+  },
+  "team": {
+    "title": "Ekibimizdeki Kişi Sayısı",
+    "subtitle": "Çekirdek ve çok-disiplinli bir ekip ile üretiyoruz.",
+    "total": "Toplam",
+    "cap": "Limit",
+    "limit": "Rol Limit",
+    "remaining": "Kalan",
+    "overCap": "Limit aşıldı",
+    "stats": {
+      "software": "Yazılım Ekibi",
+      "design": "Tasarım Ekibi",
+      "social": "Sosyal Medya Ekibi",
+      "other": "Diğer (Elektronik, Hukuk vb.)"
+    },
+    "members": {
+      "title": "Ekibimiz",
+      "subtitle": "Ekibimizi oluşturan başarılı insanlar"
+    }
+  },
+  "careerPage": {
+    "title": "Kariyer",
+    "subtitle": "Yakında pozisyonlarımızı burada paylaşacağız. Haberdar olmak için aşağıdaki e‑posta bölümünden kaydolabilir veya discord kanalımıza katılabilirsiniz.",
+    "badge": "Şu an alımlar kapalı",
+    "cta": {
+      "discord": "Discord’a Katıl",
+      "email": "E‑posta ile haberdar ol"
+    }
+  },
+  "policies": {
+    "lastUpdated": "Son güncelleme",
+    "dataController": "Veri Sorumlusu",
+    "contactEmail": "İletişim"
+  },
+  "home": {
+    "contactCta": {
+      "title": "Bizimle iletişime geçin",
+      "subtitle": "Sorunuz, teklifiniz veya proje fikriniz mi var? Ekibimizle hemen iletişime geçin.",
+      "button": "İletişime Geç"
+    },
+    "aboutMore": "Hakkımızda Daha Fazlası",
+    "projectMore": "Bütün Projelerimiz"
+  }
 }
