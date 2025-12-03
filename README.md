@@ -27,17 +27,17 @@ Showcasing software, design, gaming, and social responsibility projects — powe
 
 ## 🛠️ Tech Stack
 
-| Layer | Technology |
-|-------|-------------|
-| Framework | [Next.js 16](https://nextjs.org/docs) |
-| Language | [TypeScript](https://www.typescriptlang.org/) |
-| Styling | [TailwindCSS](https://tailwindcss.com/) + SCSS |
-| Animations | [Framer Motion](https://www.framer.com/motion/) |
-| Icons | [React Icons](https://react-icons.github.io/react-icons/) |
-| Theme | [next-themes](https://github.com/pacocoursey/next-themes) |
-| HTTP | [Axios](https://axios-http.com/) |
+| Layer         | Technology                                                  |
+| ------------- | ----------------------------------------------------------- |
+| Framework     | [Next.js 16](https://nextjs.org/docs)                       |
+| Language      | [TypeScript](https://www.typescriptlang.org/)               |
+| Styling       | [TailwindCSS](https://tailwindcss.com/) + SCSS              |
+| Animations    | [Framer Motion](https://www.framer.com/motion/)             |
+| Icons         | [React Icons](https://react-icons.github.io/react-icons/)   |
+| Theme         | [next-themes](https://github.com/pacocoursey/next-themes)   |
+| HTTP          | [Axios](https://axios-http.com/)                            |
 | Notifications | [React Toastify](https://fkhadra.github.io/react-toastify/) |
-| Hosting | [Vercel](https://vercel.com/) |
+| Hosting       | [Vercel](https://vercel.com/)                               |
 
 ---
 
@@ -71,6 +71,7 @@ npm run dev
 ```
 
 Then open:
+
 ```
 http://localhost:3000
 ```
