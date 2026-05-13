@@ -1,63 +1,65 @@
 "use client";
 
-import { AnimatedSection } from "@/components/Globals/AnimatedSection";
 import { motion } from "framer-motion";
-import { fadeIn, fadeInUp } from "@/libs/animations";
-import Image from "next/image";
+import { Section } from "@/components/ui/Section";
+import { PenguMascot } from "@/components/ui/PenguMascot";
+import { fadeIn, fadeInUp, stagger } from "@/lib/motion";
 import { useI18n } from "@/lib/i18n";
 
-export default function AboutHero() {
+export function AboutHero() {
   const { t } = useI18n();
-  const aboutText = t("about").split(/\n\s*\n/);
+  const paragraphs = t("about")
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter(Boolean);
 
   return (
-    <AnimatedSection id="about-hero" className="py-8 md:py-14">
+    <Section id="about-hero" className="py-8 md:py-14" variants={stagger}>
       <motion.div
         variants={fadeIn}
-        className="relative overflow-hidden rounded-2xl ring-1 ring-black/10 dark:ring-white/10
-                   bg-linear-to-r from-sky-900/80 via-sky-800/80 to-sky-700/80
-                   dark:from-[#0c1824] dark:via-[#0e1d2c] dark:to-[#0f2133]
-                   shadow-xl px-6 sm:px-8 lg:px-12 py-8 md:py-12
+        className="relative overflow-hidden rounded-3xl ring-1 ring-white/15 shadow-2xl
+                   bg-linear-to-br from-sky-700 via-sky-600 to-cyan-500
+                   dark:from-[#0a1929] dark:via-[#0c2236] dark:to-[#0a2c44]
+                   px-6 sm:px-10 lg:px-14 py-10 md:py-14
                    flex flex-col md:flex-row items-center justify-between gap-8 text-white"
       >
-        <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-sky-400 via-sky-300 to-sky-200/90" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-20 -right-32 h-80 w-80 rounded-full
+                     bg-white/15 blur-3xl"
+        />
 
-        <div className="flex-1">
+        <div className="flex-1 relative">
+          <motion.span
+            variants={fadeInUp}
+            className="inline-block typo-eyebrow text-white/80!"
+          >
+            {t("home.eyebrow")}
+          </motion.span>
           <motion.h1
             variants={fadeInUp}
-            className="typo-page-title text-white!"
+            className="typo-display text-3xl md:text-4xl lg:text-5xl text-white! mt-3"
           >
             {t("general.about")}
           </motion.h1>
-          {aboutText.map((p, i) => (
-            <motion.p
-              key={i}
-              variants={fadeInUp}
-              className="mt-2 typo-body text-white/90! max-w-3xl"
-            >
-              {p.trim()}
-            </motion.p>
-          ))}
+
+          <div className="mt-4 space-y-3 max-w-3xl">
+            {paragraphs.map((p, i) => (
+              <motion.p
+                key={i}
+                variants={fadeInUp}
+                className="text-white/85 text-sm md:text-base leading-relaxed"
+              >
+                {p}
+              </motion.p>
+            ))}
+          </div>
         </div>
 
-        <motion.div
-          variants={fadeInUp}
-          className="shrink-0 select-none"
-          whileHover={{ rotate: 3, scale: 1.03 }}
-          transition={{ type: "spring", stiffness: 200, damping: 12 }}
-        >
-          <Image
-            src="/resimler/penguen.png"
-            alt=""
-            aria-hidden="true"
-            width={288}
-            height={288}
-            priority
-            sizes="(min-width:1280px) 288px, (min-width:1024px) 256px, (min-width:640px) 224px, 176px"
-            className="w-44 sm:w-56 lg:w-64 xl:w-72"
-          />
+        <motion.div variants={fadeInUp} className="shrink-0 select-none">
+          <PenguMascot size={240} animated priority />
         </motion.div>
       </motion.div>
-    </AnimatedSection>
+    </Section>
   );
 }

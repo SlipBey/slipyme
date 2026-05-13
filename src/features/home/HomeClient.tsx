@@ -1,21 +1,23 @@
 "use client";
 
-import HomeHeroSlider from "./components/HomeHeroSlider";
-import AboutSection from "./components/AboutSection";
-import CsrSection from "./components/CsrSection";
-import ProjectsBlock from "./components/ProjectsBlock";
-import SocialBlock from "./components/SocialBlock";
-import ContactCta from "./components/ContactCta";
+import { HomeHero } from "@/features/home/components/HomeHero";
+import { AboutTeaser } from "./components/AboutTeaser";
+import { CsrTeaser } from "./components/CsrTeaser";
+import { ProjectsTeaser } from "./components/ProjectsTeaser";
+import { SocialTeaser } from "./components/SocialTeaser";
+import { ContactCtaSection } from "./components/ContactCtaSection";
+import { MusicTeaser } from "./components/MusicTeaser";
 
 export default function HomeClient() {
   return (
     <>
-      <HomeHeroSlider />
-      <AboutSection />
-      <CsrSection />
-      <ProjectsBlock />
-      <SocialBlock />
-      <ContactCta />
+      <HomeHero />
+      <AboutTeaser />
+      <CsrTeaser />
+      <ProjectsTeaser />
+      <MusicTeaser />
+      <SocialTeaser />
+      <ContactCtaSection />
     </>
   );
 }

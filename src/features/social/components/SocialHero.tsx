@@ -1,41 +1,42 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeIn, fadeInUp } from "@/libs/animations";
-import { Button } from "@/components/Globals/Button";
-import { Link } from "@/components/Globals/Link";
-import { AnimatedSection } from "@/components/Globals/AnimatedSection";
+import { Section } from "@/components/ui/Section";
+import { Link } from "@/components/ui/Link";
+import { Button } from "@/components/ui/Button";
+import { fadeIn, fadeInUp, stagger } from "@/lib/motion";
 import { useI18n } from "@/lib/i18n";
 
-export default function SocialHero() {
+export function SocialHero() {
   const { t } = useI18n();
   return (
-    <AnimatedSection id="hero" className="py-6 sm:py-10" mode="both">
+    <Section id="social-hero" className="py-8 md:py-12" variants={stagger}>
       <motion.section
         variants={fadeIn}
-        initial="hidden"
-        animate="show"
-        className="rounded-3xl bg-linear-to-b from-sky-200 to-white dark:from-sky-950 dark:to-zinc-900 px-6 py-10 text-center
-                   ring-1 ring-black/5 dark:ring-white/10"
+        className="rounded-3xl glass-strong px-6 py-12 text-center
+                   ring-1 ring-black/5 dark:ring-white/10 shadow-xl"
       >
+        <motion.span variants={fadeInUp} className="typo-eyebrow">
+          {t("home.eyebrow")}
+        </motion.span>
         <motion.h1
-          className="text-3xl md:text-4xl font-extrabold"
           variants={fadeInUp}
+          className="typo-display text-3xl md:text-4xl lg:text-5xl mt-3"
         >
           {t("social.title")}
         </motion.h1>
         <motion.p
-          className="mt-3 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
           variants={fadeInUp}
+          className="mt-4 typo-body max-w-2xl mx-auto"
         >
           {t("social.subtitle")}
         </motion.p>
-        <motion.div className="mt-6" variants={fadeInUp}>
+        <motion.div variants={fadeInUp} className="mt-6">
           <Link href="#social-accounts">
-            <Button>{t("social.followUs")}</Button>
+            <Button size="lg">{t("social.followUs")}</Button>
           </Link>
         </motion.div>
       </motion.section>
-    </AnimatedSection>
+    </Section>
   );
 }

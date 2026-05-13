@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { toast } from "react-toastify";
-import instance from "@/libs/api";
+import { Button } from "@/components/ui/Button";
+import api from "@/lib/api";
 import { useI18n } from "@/lib/i18n";
+import { FiSend } from "react-icons/fi";
 
 type SubjectOpt = { value: string; label: string };
 
-export default function ContactForm({
+export function ContactForm({
   subjectOptions,
 }: {
   subjectOptions: SubjectOpt[];
@@ -15,20 +17,20 @@ export default function ContactForm({
   const { t } = useI18n();
   const [pending, setPending] = useState(false);
 
-  const [contact, setContact] = useState({
+  const initial = {
     fullName: "",
     subject: subjectOptions?.[0]?.value ?? "general",
     email: "",
     phone: "",
     message: "",
-  });
+  };
+
+  const [contact, setContact] = useState(initial);
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
-    const { name, value } = e.target as any;
+    const { name, value } = e.target;
     if (name === "phone") {
       const raw = value.replace(/\D/g, "").slice(0, 10);
       const formatted = raw
@@ -40,7 +42,7 @@ export default function ContactForm({
     }
   };
 
-  const onSave = async (e: React.FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setPending(true);
     const payload = {
@@ -52,35 +54,30 @@ export default function ContactForm({
       channel: "slipyme",
     };
     try {
-      const res = await instance.post("/api/contact", payload);
+      const res = await api.post("/api/contact", payload);
       toast.success(res?.data?.message ?? t("contact.success"));
-      setContact({
-        fullName: "",
-        subject: subjectOptions?.[0]?.value ?? "general",
-        email: "",
-        phone: "",
-        message: "",
-      });
-    } catch (err: any) {
-      toast.error(err?.response?.data?.error ?? t("contact.error"));
+      setContact(initial);
+    } catch (err: unknown) {
+      const message =
+        (err as { response?: { data?: { error?: string } } })?.response?.data
+          ?.error ?? t("contact.error");
+      toast.error(message);
     } finally {
       setPending(false);
     }
   };
 
   return (
-    <div className="md:max-w-lg space-y-5">
+    <div className="space-y-5">
       <div>
-        <h2 className="text-xl font-bold">{t("general.contact")}</h2>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
-          {t("contact.description")}
-        </p>
+        <h2 className="typo-section-title">{t("general.contact")}</h2>
+        <p className="typo-body mt-2">{t("contact.description")}</p>
       </div>
 
-      <form onSubmit={onSave} className="space-y-4">
+      <form onSubmit={onSubmit} className="space-y-4">
         <div className="space-y-1.5">
-          <label htmlFor="fullName" className="text-sm font-medium">
-            {t("contact.name.label")} <span className="text-red-500">*</span>
+          <label htmlFor="fullName">
+            {t("contact.name.label")} <span>*</span>
           </label>
           <input
             name="fullName"
@@ -93,9 +90,7 @@ export default function ContactForm({
         </div>
 
         <div className="space-y-1.5">
-          <label htmlFor="subject" className="text-sm font-medium">
-            {t("contact.subjects.label")}
-          </label>
+          <label htmlFor="subject">{t("contact.subjects.label")}</label>
           <select
             id="subject"
             name="subject"
@@ -112,8 +107,8 @@ export default function ContactForm({
 
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-1 space-y-1.5">
-            <label htmlFor="email" className="text-sm font-medium">
-              {t("contact.mail.label")} <span className="text-red-500">*</span>
+            <label htmlFor="email">
+              {t("contact.mail.label")} <span>*</span>
             </label>
             <input
               type="email"
@@ -121,28 +116,26 @@ export default function ContactForm({
               id="email"
               value={contact.email}
               onChange={handleChange}
-              placeholder="example@gmail.com"
+              placeholder="example@example.com"
               required
             />
           </div>
           <div className="flex-1 space-y-1.5">
-            <label htmlFor="phone" className="text-sm font-medium">
-              {t("contact.phone.label")}
-            </label>
+            <label htmlFor="phone">{t("contact.phone.label")}</label>
             <input
               name="phone"
               id="phone"
               inputMode="tel"
               value={contact.phone}
               onChange={handleChange}
-              placeholder="5xx xxx xxxx"
+              placeholder="(5xx) xxx xxxx"
             />
           </div>
         </div>
 
         <div className="space-y-1.5">
-          <label htmlFor="message" className="text-sm font-medium">
-            {t("contact.message.label")} <span className="text-red-500">*</span>
+          <label htmlFor="message">
+            {t("contact.message.label")} <span>*</span>
           </label>
           <textarea
             name="message"
@@ -155,9 +148,16 @@ export default function ContactForm({
           />
         </div>
 
-        <button type="submit" disabled={pending}>
+        <Button
+          type="submit"
+          disabled={pending}
+          loading={pending}
+          icon={FiSend}
+          iconPosition="right"
+          className="w-full sm:w-auto"
+        >
           {pending ? t("contact.sending") : t("contact.button")}
-        </button>
+        </Button>
       </form>
     </div>
   );

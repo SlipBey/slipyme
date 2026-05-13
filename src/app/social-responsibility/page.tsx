@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import { tServer } from "@/lib/i18n/server";
 import { buildMetadata } from "@/lib/seo";
-import { tServer } from "@/lib/i18nServer";
 import CsrClient from "@/features/csr/CsrClient";
 
 export async function generateMetadata(): Promise<Metadata> {
   const title = await tServer("general.csr");
-  const description = await tServer("csr.hero.subtitle");
+  const description = await tServer("csr.text");
   return buildMetadata({
     title,
     description,
@@ -13,6 +13,6 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
-export default function CsrPage() {
+export default function SocialResponsibilityPage() {
   return <CsrClient />;
 }

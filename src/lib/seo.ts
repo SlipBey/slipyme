@@ -1,88 +1,36 @@
 import type { Metadata } from "next";
+import { SITE } from "@/config/site";
 
-const domain = "slipyme.com";
-export const CONFIG = {
-  SEO: {
-    title: "Slipyme Company",
-    layoutTitle: "%s - Slipyme Company",
-    publishDomain: `https://www.${domain}`,
-    themeColor: "#2563eb",
-    keywords: [
-      "Slipyme Company",
-      "Slipyme şirketi",
-      "slipy",
-      "slipybey",
-      "slipbey",
-      "slipyme",
-      "enderrise",
-      "blog",
-      "react",
-      "next",
-      "reactjs",
-      "nextjs",
-      "tailwind",
-      "tailwindcss",
-      "software",
-      "yazilim",
-      "web",
-      "programming",
-      "css",
-      "js",
-      "nodejs",
-      "mobil uygulama geliştirme",
-      "masaüstü uygulama geliştirme",
-      "web tabanlı uygulama geliştirme",
-      "website tasarımı",
-      "gömülü sistemler",
-      "elektronik projeler",
-      "Arduino projeleri",
-      "oyun geliştirme",
-      "kaliteli hizmet",
-      "çözüm odaklı",
-      "teknoloji",
-      "yazılım çözümleri",
-      "tasarım hizmetleri",
-      "entegre çözümler",
-      "üst düzey hizmet",
-      "sektör entegrasyonu",
-    ],
-    description:
-      "Slipyme, çeşitli sektörlerde üst düzey hizmet sunma amacıyla kurulmuştur. Misyonumuz, faaliyet gösterdiğimiz sektörleri birbirleriyle entegre ederek kaliteli çözümler ortaya koymaktır. Şu anda, yazılım, tasarım ve oyun sektörlerinde etkinlik göstermekteyiz. Yazılım alanında, mobil, masaüstü, web tabanlı, website, gömülü, elektronik ve Arduino gibi geniş bir yelpazede projeler gerçekleştiriyoruz.",
-  },
-};
-
-type Opt = {
+type Opts = {
   title?: string;
   description?: string;
   alternates?: { canonical?: string };
   images?: string[];
 };
 
-export function buildMetadata(opt: Opt = {}): Metadata {
-  const pageTitle = opt.title ?? CONFIG.SEO.title;
-  const description = opt.description ?? CONFIG.SEO.description;
-  const canonical = opt.alternates?.canonical
-    ? `${CONFIG.SEO.publishDomain}${opt.alternates.canonical}`
-    : CONFIG.SEO.publishDomain;
+export function buildMetadata(opts: Opts = {}): Metadata {
+  const pageTitle = opts.title ?? SITE.name;
+  const description = opts.description ?? SITE.description;
+  const canonical = opts.alternates?.canonical
+    ? `${SITE.url}${opts.alternates.canonical}`
+    : SITE.url;
 
-  const images = (opt.images?.length ? opt.images : ["/resimler/logo.png"]).map(
+  const images = (opts.images?.length ? opts.images : [SITE.ogImage]).map(
     (url) => ({ url }),
   );
 
   return {
-    metadataBase: new URL(CONFIG.SEO.publishDomain),
-    title: opt.title
-      ? `${opt.title} - Slipyme Company`
-      : { default: CONFIG.SEO.title, template: CONFIG.SEO.layoutTitle },
-
+    metadataBase: new URL(SITE.url),
+    title: opts.title
+      ? `${opts.title}`
+      : { default: SITE.name, template: SITE.layoutTitle },
     description,
-    keywords: CONFIG.SEO.keywords,
+    keywords: [...SITE.keywords],
     icons: { icon: "/resimler/logo.png", apple: "/apple-touch-icon.png" },
-
     openGraph: {
       type: "website",
       url: canonical,
-      siteName: CONFIG.SEO.title,
+      siteName: SITE.name,
       title: pageTitle,
       description,
       images,
@@ -93,7 +41,14 @@ export function buildMetadata(opt: Opt = {}): Metadata {
       card: "summary",
       title: pageTitle,
       description,
-      images: images.map((i) => i.url ?? "/resimler/logo.png"),
+      images: images.map((i) => i.url ?? SITE.ogImage),
+    },
+    alternates: {
+      canonical,
+      languages: {
+        "tr-TR": canonical,
+        "en-US": canonical,
+      },
     },
   };
 }

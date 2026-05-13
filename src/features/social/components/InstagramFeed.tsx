@@ -1,10 +1,10 @@
 "use client";
 
-import { FiInstagram, FiPlayCircle, FiLayers } from "react-icons/fi";
 import Image from "next/image";
-import { Link } from "@/components/Globals/Link";
-import { AnimatedSection } from "@/components/Globals/AnimatedSection";
+import { Section } from "@/components/ui/Section";
+import { Link } from "@/components/ui/Link";
 import { useI18n } from "@/lib/i18n";
+import { FiInstagram, FiPlayCircle, FiLayers } from "react-icons/fi";
 
 type IgItem = {
   id: string;
@@ -16,7 +16,7 @@ type IgItem = {
   timestamp?: string;
 };
 
-export default function InstagramFeed({
+export function InstagramFeed({
   items,
   loading = false,
 }: {
@@ -27,15 +27,11 @@ export default function InstagramFeed({
   const isEmpty = !loading && items?.length === 0;
 
   return (
-    <AnimatedSection id="ig" className="py-6 sm:py-12" mode="view">
-      <div className="space-y-3">
+    <Section id="ig" className="py-8 md:py-12">
+      <div className="space-y-4">
         <div className="flex items-center gap-2">
-          <FiInstagram
-            className="w-5 h-5"
-            aria-hidden="true"
-            focusable="false"
-          />
-          <h3 className="text-lg font-semibold">
+          <FiInstagram size={18} aria-hidden />
+          <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
             {t("social.instagramTitle")}
           </h3>
         </div>
@@ -45,7 +41,7 @@ export default function InstagramFeed({
             Array.from({ length: 8 }).map((_, i) => (
               <div
                 key={i}
-                className="rounded-xl overflow-hidden bg-white ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10"
+                className="rounded-xl overflow-hidden glass ring-1 ring-black/5 dark:ring-white/10"
               >
                 <div className="w-full h-40 animate-pulse bg-zinc-200/60 dark:bg-white/10" />
               </div>
@@ -63,7 +59,10 @@ export default function InstagramFeed({
                 <Link
                   key={it.id}
                   href={it.permalink}
-                  className="group relative block rounded-xl overflow-hidden bg-white ring-1 ring-black/5 hover:shadow-md transition dark:bg-zinc-900 dark:ring-white/10"
+                  blank
+                  className="group relative block rounded-xl overflow-hidden
+                             glass ring-1 ring-black/5 dark:ring-white/10
+                             hover:ring-sky-500/40 transition-all"
                 >
                   <Image
                     src={raw}
@@ -74,34 +73,32 @@ export default function InstagramFeed({
                     sizes="(min-width:1024px) 25vw, (min-width:640px) 33vw, 50vw"
                     className="w-full h-40 object-cover transition-transform group-hover:scale-[1.03]"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/40 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition" />
+                  <div
+                    className="absolute inset-0 bg-linear-to-t from-black/40 via-black/0 to-transparent
+                                  opacity-0 group-hover:opacity-100 transition"
+                  />
 
-                  {(isVideo || isAlbum) && (
-                    <span className="absolute top-2 right-2 inline-flex items-center gap-1 text-[10px] px-1.5 py-0.5 rounded bg-black/70 text-white border border-white/20">
+                  {isVideo || isAlbum ? (
+                    <span
+                      className="absolute top-2 right-2 inline-flex items-center gap-1 text-[10px]
+                                     px-1.5 py-0.5 rounded bg-black/70 text-white border border-white/20"
+                    >
                       {isVideo ? (
-                        <FiPlayCircle
-                          className="w-3.5 h-3.5"
-                          aria-hidden="true"
-                          focusable="false"
-                        />
+                        <FiPlayCircle size={12} aria-hidden />
                       ) : (
-                        <FiLayers
-                          className="w-3.5 h-3.5"
-                          aria-hidden="true"
-                          focusable="false"
-                        />
+                        <FiLayers size={12} aria-hidden />
                       )}
                       {isVideo
                         ? t("social.stats.badges.video")
                         : t("social.stats.badges.album")}
                     </span>
-                  )}
+                  ) : null}
                 </Link>
               );
             })
           )}
         </div>
       </div>
-    </AnimatedSection>
+    </Section>
   );
 }

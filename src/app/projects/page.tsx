@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
-import { tServer } from "@/lib/i18nServer";
-import ProjectPageClient from "@/features/projects/ProjectClient";
+import { tServer } from "@/lib/i18n/server";
+import ProjectClient from "@/features/projects/ProjectClient";
 
 type TypeFilter = "all" | "software" | "design";
 const ALLOWED: TypeFilter[] = ["all", "software", "design"];
@@ -30,6 +30,5 @@ export default async function ProjectsPage({
 }) {
   const sp = await searchParams;
   const initialType = toType(sp?.cat);
-
-  return <ProjectPageClient initialType={initialType} />;
+  return <ProjectClient initialType={initialType} />;
 }

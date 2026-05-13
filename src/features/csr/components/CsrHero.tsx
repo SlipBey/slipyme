@@ -1,35 +1,35 @@
 "use client";
 
-import { AnimatedSection } from "@/components/Globals/AnimatedSection";
-import { motion } from "framer-motion";
-import { fadeIn, fadeInUp } from "@/libs/animations";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { Section } from "@/components/ui/Section";
+import { fadeIn, fadeInUp, stagger } from "@/lib/motion";
 import { useI18n } from "@/lib/i18n";
 
-export default function CsrHero() {
+export function CsrHero() {
   const { t } = useI18n();
 
   return (
-    <AnimatedSection id="csr-hero" className="py-5 sm:py-12" mode="view">
+    <Section id="csr-hero" className="py-8 md:py-12" variants={stagger}>
       <motion.div
-        className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
         variants={fadeIn}
+        className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
       >
         <motion.div variants={fadeInUp}>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-50">
-            {t("csr.hero.title")}
-          </h1>
-          <p className="mt-3 text-slate-700 dark:text-slate-300">
-            {t("csr.hero.subtitle")}
-          </p>
+          <span className="typo-eyebrow">{t("home.eyebrow")}</span>
+          <h1 className="typo-page-title mt-2">{t("csr.hero.title")}</h1>
+          <p className="typo-body mt-4 max-w-xl">{t("csr.hero.subtitle")}</p>
         </motion.div>
 
         <motion.div variants={fadeInUp}>
-          <div className="aspect-4/3 rounded-2xl overflow-hidden shadow-lg ring-1 ring-black/10 dark:ring-white/10">
+          <div
+            className="aspect-4/3 rounded-2xl overflow-hidden shadow-xl
+                          ring-1 ring-black/5 dark:ring-white/10"
+          >
             <Image
               src="/resimler/csr.png"
               alt=""
-              aria-hidden="true"
+              aria-hidden
               width={1200}
               height={900}
               priority
@@ -39,6 +39,6 @@ export default function CsrHero() {
           </div>
         </motion.div>
       </motion.div>
-    </AnimatedSection>
+    </Section>
   );
 }

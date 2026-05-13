@@ -12,16 +12,9 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "*.cdninstagram.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "i.ytimg.com",
-        pathname: "/**",
-      },
+      { protocol: "https", hostname: "*.cdninstagram.com", pathname: "/**" },
+      { protocol: "https", hostname: "i.ytimg.com", pathname: "/**" },
+      { protocol: "https", hostname: "i.scdn.co", pathname: "/**" },
     ],
   },
   async redirects() {
@@ -51,7 +44,7 @@ const nextConfig: NextConfig = {
         destination: "https://www.linkedin.com/company/slipyme/",
         permanent: true,
       },
-      { source: "/basvuru", destination: "/career", permanent: true },
+      { source: "/basvuru", destination: "/carrier", permanent: true },
     ];
   },
 };

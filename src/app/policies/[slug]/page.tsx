@@ -1,43 +1,21 @@
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { buildMetadata } from "@/lib/seo";
-import { POLICIES, POLICIES_EN } from "@/features/policies/libs/policies";
 import PoliciesClient from "@/features/policies/PoliciesClient";
+import { POLICIES } from "@/features/policies/lib/policies";
 
-export async function generateStaticParams() {
-  return POLICIES.map((p) => ({ slug: p.slug }));
-}
+type Props = { params: Promise<{ slug: string }> };
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-
-  const policy =
-    POLICIES.find((p) => p.slug === slug) ??
-    POLICIES_EN.find((p) => p.slug === slug);
-
+  const policy = POLICIES.find((p) => p.slug === slug);
   return buildMetadata({
-    title: policy?.title ?? "Policy",
-    description: policy?.updatedAt ?? "",
+    title: policy?.title ?? "Policies",
     alternates: { canonical: `/policies/${slug}` },
   });
 }
 
-export default async function PolicyPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function PolicyPage({ params }: Props) {
   const { slug } = await params;
-
-  const exists =
-    POLICIES.some((p) => p.slug === slug) ||
-    POLICIES_EN.some((p) => p.slug === slug);
-
-  if (!exists) notFound();
-
+  if (!POLICIES.some((p) => p.slug === slug)) notFound();
   return <PoliciesClient slug={slug} />;
 }

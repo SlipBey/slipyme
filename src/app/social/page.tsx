@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import { tServer } from "@/lib/i18n/server";
 import { buildMetadata } from "@/lib/seo";
-import { tServer } from "@/lib/i18nServer";
 import SocialClient from "@/features/social/SocialClient";
 
 export async function generateMetadata(): Promise<Metadata> {

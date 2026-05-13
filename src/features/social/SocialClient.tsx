@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import api from "@/libs/api";
-import InstagramFeed from "./components/InstagramFeed";
-import SocialAccounts from "./components/SocialAccounts";
-import SocialCTA from "./components/SocialCTA";
-import SocialHero from "./components/SocialHero";
-import SocialStats from "./components/SocialStats";
-import YouTubeFeed from "./components/YouTubeFeed";
+import api from "@/lib/api";
+import { SocialHero } from "./components/SocialHero";
+import { SocialStats } from "./components/SocialStats";
+import { SocialAccounts } from "./components/SocialAccounts";
+import { YouTubeFeed } from "./components/YouTubeFeed";
+import { InstagramFeed } from "./components/InstagramFeed";
+import { SocialCTA } from "./components/SocialCTA";
 
 export type FeedResp = {
   data: {
@@ -33,7 +33,7 @@ export type FeedResp = {
 export default function SocialClient() {
   const [ytItems, setYtItems] = useState<FeedResp["data"]["youtube"]>([]);
   const [igItems, setIgItems] = useState<FeedResp["data"]["instagram"]>([]);
-  const [loadingFeeds, setLoadingFeeds] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -44,7 +44,7 @@ export default function SocialClient() {
       } catch (e) {
         console.error(e);
       } finally {
-        setLoadingFeeds(false);
+        setLoading(false);
       }
     })();
   }, []);
@@ -54,8 +54,8 @@ export default function SocialClient() {
       <SocialHero />
       <SocialStats />
       <SocialAccounts />
-      <YouTubeFeed items={ytItems} loading={loadingFeeds} />
-      <InstagramFeed items={igItems} loading={loadingFeeds} />
+      <YouTubeFeed items={ytItems} loading={loading} />
+      <InstagramFeed items={igItems} loading={loading} />
       <SocialCTA />
     </>
   );

@@ -1,27 +1,27 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
-import { AnimatedSection } from "@/components/Globals/AnimatedSection";
 import Image from "next/image";
-import { fadeIn, fadeInUp, staggerContainer } from "@/libs/animations";
+import { motion } from "framer-motion";
+import { Section } from "@/components/ui/Section";
+import { ImageGalleryModal } from "@/components/ui/ImageGalleryModal";
+import { fadeIn, fadeInUp, stagger } from "@/lib/motion";
 import { useI18n } from "@/lib/i18n";
-import { MEDIA_DATA } from "./libs/media";
-import { ImageGalleryModal } from "./components/Modal";
+import { MEDIA_DATA } from "./lib/media";
+import { cn } from "@/lib/cn";
 
 export default function MediaClient() {
   const { t } = useI18n();
 
-  const MEDIA = useMemo(() => MEDIA_DATA, []);
   const TABS = useMemo(
     () => [
       { key: "all", label: t("media.categories.all") },
-      ...MEDIA.map((g) => ({
+      ...MEDIA_DATA.map((g) => ({
         key: g.key,
         label: t(`media.categories.${g.key}`),
       })),
     ],
-    [MEDIA, t],
+    [t],
   );
 
   const [activeTab, setActiveTab] = useState<string>("all");
@@ -36,142 +36,182 @@ export default function MediaClient() {
   };
 
   const visibleGroups = useMemo(() => {
-    if (activeTab === "all") return MEDIA;
-    const group = MEDIA.find((g) => g.key === activeTab);
+    if (activeTab === "all") return MEDIA_DATA;
+    const group = MEDIA_DATA.find((g) => g.key === activeTab);
     return group ? [group] : [];
-  }, [activeTab, MEDIA]);
+  }, [activeTab]);
 
   return (
     <>
-      <AnimatedSection id="media-hero" className="py-5 sm:py-12" mode="mount">
+      <Section id="media-hero" className="py-8 md:py-12" animate={false}>
         <motion.div
-          variants={fadeIn}
-          className="relative overflow-hidden rounded-2xl ring-1 ring-black/10 dark:ring-white/10
-                     bg-linear-to-r from-sky-900/80 via-sky-800/80 to-sky-700/80
-                     dark:from-[#0c1824] dark:via-[#0e1d2c] dark:to-[#0f2133]
-                     shadow-xl px-6 sm:px-8 lg:px-12 py-8 md:py-12
-                     flex flex-col md:flex-row items-center justify-between gap-8 text-white"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          className="relative overflow-hidden rounded-3xl ring-1 ring-white/15 shadow-2xl
+               bg-linear-to-br from-sky-700 via-sky-600 to-cyan-500
+               dark:from-[#0a1929] dark:via-[#0c2236] dark:to-[#0a2c44]
+               px-6 sm:px-10 lg:px-14 py-10 md:py-14
+               flex flex-col md:flex-row items-center justify-between gap-8 text-white"
         >
-          <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-sky-400 via-sky-300 to-sky-200/90" />
+          <motion.div
+            aria-hidden
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+            className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full
+                 bg-white/15 blur-3xl"
+          />
 
-          <div className="flex-1">
+          <div className="flex-1 relative">
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                duration: 0.35,
+                delay: 0.08,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="inline-block typo-eyebrow text-white/80!"
+            >
+              {t("home.eyebrow")}
+            </motion.span>
+
             <motion.h1
-              variants={fadeInUp}
-              className="typo-page-title text-white!"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.42,
+                delay: 0.12,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="typo-display text-3xl md:text-4xl lg:text-5xl text-white! mt-3"
             >
               {t("media.title")}
             </motion.h1>
+
             <motion.p
-              variants={fadeInUp}
-              className="mt-2 typo-body text-white/90! max-w-3xl"
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.42,
+                delay: 0.16,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="mt-3 text-white/85 max-w-2xl text-sm md:text-base"
             >
               {t("media.text")}
             </motion.p>
           </div>
 
           <motion.div
-            variants={fadeInUp}
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ rotate: 3, scale: 1.04 }}
+            transition={{
+              duration: 0.45,
+              delay: 0.12,
+              ease: [0.16, 1, 0.3, 1],
+            }}
             className="shrink-0 select-none"
-            whileHover={{ rotate: 3, scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 200, damping: 12 }}
           >
             <Image
               src="/resimler/cikartmalar/camera.png"
               alt=""
-              aria-hidden="true"
-              width={160}
-              height={160}
+              aria-hidden
+              width={180}
+              height={180}
               priority
-              sizes="(min-width:768px) 160px, 120px"
-              className="w-30 md:w-40"
+              sizes="(min-width:768px) 180px, 120px"
+              className="h-auto w-32 drop-shadow-2xl md:w-44"
             />
           </motion.div>
         </motion.div>
-      </AnimatedSection>
+      </Section>
 
-      <AnimatedSection
-        id="media-tabs"
-        className="mx-auto px-2 sm:px-0"
-        mode="mount"
-      >
+      <Section id="media-tabs" className="px-2 sm:px-0">
         <motion.div
-          variants={staggerContainer}
-          className="flex flex-wrap items-center gap-2 sm:gap-3"
+          variants={stagger}
+          className="category-orb-shell flex w-fit max-w-full flex-wrap items-center gap-2.5 rounded-4xl p-2"
         >
-          {TABS.map((tItem) => {
-            const active = tItem.key === activeTab;
+          {TABS.map((tab) => {
+            const active = tab.key === activeTab;
             return (
               <motion.button
-                key={tItem.key}
-                onClick={() => setActiveTab(tItem.key)}
-                className={`px-3 py-1.5 rounded-xl text-sm font-medium transition ring-1 ring-black/10 dark:ring-white/10 ${
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={cn(
+                  "category-orb px-4 py-2 rounded-full text-sm font-black ring-1",
                   active
-                    ? "bg-blue-600 text-white"
-                    : "bg-white dark:bg-[#16181d] text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-blue-900/30"
-                }`}
+                    ? "category-orb-active text-white ring-sky-300/70"
+                    : "text-zinc-700 dark:text-zinc-300 ring-sky-900/10 dark:ring-white/10",
+                )}
+                data-active={active ? "true" : "false"}
                 variants={fadeInUp}
-                whileTap={{ scale: 0.98 }}
+                whileTap={{ scale: 0.97 }}
               >
-                {tItem.label}
+                {tab.label}
               </motion.button>
             );
           })}
         </motion.div>
-      </AnimatedSection>
+      </Section>
 
-      <AnimatedSection id="media-grid" className="py-6 sm:py-10" mode="mount">
-        <motion.div className="mx-auto space-y-10" variants={fadeInUp}>
+      <Section id="media-grid" className="py-8 md:py-12" animate={false}>
+        <div className="space-y-10">
           {visibleGroups.map((media, idx) => (
             <div
-              key={`${media.key}-${idx}`}
-              className="rounded-2xl bg-white dark:bg-[#16181d] ring-1 ring-black/10 dark:ring-white/10 p-4 sm:p-6"
+              key={media.key}
+              className="media-panel-accent relative overflow-hidden rounded-2xl glass ring-1 ring-black/5 dark:ring-white/10 p-4 sm:p-6"
             >
-              {activeTab === "all" && (
-                <motion.h2
-                  className="typo-section-title mb-4"
-                  variants={fadeInUp}
-                >
+              {activeTab === "all" ? (
+                <h2 className="typo-section-title mb-4">
                   {t(`media.categories.${media.key}`)}
-                </motion.h2>
-              )}
+                </h2>
+              ) : null}
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3 sm:gap-4">
-                {media.photos.map((photo, key) => (
-                  <motion.button
-                    key={`${photo}-${key}`}
-                    onClick={() => openGallery(media.photos, key)}
-                    className="group relative rounded-xl overflow-hidden bg-slate-100 dark:bg-[#0f1216] ring-1 ring-black/10 dark:ring-white/10"
-                    variants={fadeInUp}
-                    whileHover={{ y: -2 }}
-                    transition={{ duration: 0.25, ease: "easeOut" }}
-                    aria-label="Görseli büyüt"
-                  >
-                    <div className="aspect-square p-2 flex items-center justify-center">
-                      <Image
-                        src={photo}
-                        alt=""
-                        width={256}
-                        height={256}
-                        loading="lazy"
-                        sizes="(min-width:1280px) 12.5vw, (min-width:1024px) 16.66vw, (min-width:768px) 25vw, (min-width:640px) 33.33vw, 50vw"
-                        className="max-h-full max-w-full object-contain"
-                      />
-                    </div>
-                    <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-black/10 dark:bg-white/10" />
-                  </motion.button>
-                ))}
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+                {media.photos.map((photo, key) => {
+                  const shouldEagerLoad = idx === 0 && key < 8;
+
+                  return (
+                    <button
+                      key={`${media.key}-${photo}-${key}`}
+                      type="button"
+                      onClick={() => openGallery(media.photos, key)}
+                      className="group relative overflow-hidden rounded-xl
+                           bg-zinc-100/60 ring-1 ring-black/5
+                           transition-[box-shadow,border-color,background-color,opacity]
+                           duration-300 ease-out hover:ring-sky-500/40
+                           dark:bg-zinc-900/40 dark:ring-white/10"
+                      aria-label={t("gallery.open")}
+                    >
+                      <div className="relative aspect-square p-2">
+                        <Image
+                          src={photo}
+                          alt=""
+                          width={256}
+                          height={256}
+                          loading={shouldEagerLoad ? "eager" : "lazy"}
+                          sizes="(min-width:1280px) 12.5vw, (min-width:1024px) 16.66vw, (min-width:768px) 25vw, (min-width:640px) 33.33vw, 50vw"
+                          className="h-full w-full object-contain transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+                        />
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           ))}
-        </motion.div>
-      </AnimatedSection>
+        </div>
+      </Section>
 
       <ImageGalleryModal
         images={modalImages}
         isOpen={modalOpen}
         currentIndex={modalIndex}
         onClose={() => setModalOpen(false)}
-        onChange={(index) => setModalIndex(index)}
+        onChange={setModalIndex}
       />
     </>
   );

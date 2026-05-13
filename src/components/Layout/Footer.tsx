@@ -1,129 +1,157 @@
 "use client";
 
-import { FC } from "react";
-import { Link } from "@/components/Globals/Link";
+import { type FormEvent } from "react";
 import Image from "next/image";
-import { FOOTER_PAGES } from "@/libs/config/pages";
-import instance from "@/libs/api";
-import { toast } from "react-toastify";
+import { Link } from "@/components/ui/Link";
+import { Container } from "@/components/ui/Container";
+import { Button } from "@/components/ui/Button";
+import { FOOTER_GROUPS } from "@/config/navigation";
+import { SOCIAL_LINKS } from "@/config/social";
 import { useI18n } from "@/lib/i18n";
+import api from "@/lib/api";
+import { toast } from "react-toastify";
+import { FiArrowRight } from "react-icons/fi";
 
-const Footer: FC = () => {
+export function Footer() {
   const { t } = useI18n();
+  const year = new Date().getFullYear();
+
+  async function handleSubscribe(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const email = String(data.get("email") ?? "").trim();
+
+    if (!email) return;
+
+    try {
+      const res = await api.post("/api/mail", {
+        email,
+        addTime: new Date().toISOString(),
+      });
+
+      toast.success(res?.data?.message ?? t("footer.newsletter.success"));
+      form.reset();
+    } catch (err: unknown) {
+      const message =
+        (err as { response?: { data?: { error?: string } } })?.response?.data
+          ?.error ?? t("footer.newsletter.error");
+
+      toast.error(message);
+    }
+  }
 
   return (
-    <footer className="relative mt-10 w-full text-black dark:text-gray-100 px-4 md:px-12 lg:px-0">
-      <div className="max-w-4xl xl:max-w-7xl mx-auto px-6 md:px-8 py-10 rounded-2xl border border-gray-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-lg">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div className="space-y-4">
-            <div>
-              <Image
-                src="/resimler/slipyme-yazi-siyah.png"
-                alt="Slipyme"
-                width={160}
-                height={40}
-                loading="lazy"
-                sizes="160px"
-                className="w-40 dark:hidden"
-              />
-              <Image
-                src="/resimler/slipyme-yazi.png"
-                alt="Slipyme"
-                width={160}
-                height={40}
-                loading="lazy"
-                sizes="160px"
-                className="w-40 hidden dark:block"
-              />
-            </div>
-            <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-              {t("footer.desc")}
-            </p>
-          </div>
+    <footer className="relative mt-16 mb-24 w-full px-4 text-zinc-900 dark:text-zinc-100 sm:mb-10 lg:px-0">
+      <Container size="xl" className="px-0!">
+        <div className="footer-glass rounded-4xl p-6 shadow-xl ring-1 ring-black/5 dark:ring-white/10 sm:p-8 md:p-10">
+          <div className="grid grid-cols-1 gap-9 lg:grid-cols-[1.15fr_.85fr_1fr] lg:gap-12">
+            <div className="flex flex-col">
+              <div className="space-y-5">
+                <Link href="/" className="inline-flex items-center gap-3">
+                  <Image
+                    src="/resimler/logo.png"
+                    alt={t("brand.name")}
+                    width={44}
+                    height={44}
+                    loading="lazy"
+                    sizes="44px"
+                    className="rounded-full ring-1 ring-black/10 dark:ring-white/15"
+                  />
 
-          <div className="grid grid-cols-2 gap-8">
-            {FOOTER_PAGES.map((group, i) => (
-              <div key={i}>
-                <h3 className="text-base font-semibold mb-3">
-                  {t(group.title)}
-                </h3>
-                <ul className="space-y-2">
-                  {group.pages.map((p, k) => (
-                    <li key={k}>
+                  <span className="text-lg font-black tracking-tight">
+                    {t("brand.name")}
+                  </span>
+                </Link>
+
+                <p className="typo-body max-w-sm">{t("footer.desc")}</p>
+
+                <div className="flex flex-wrap gap-2">
+                  {SOCIAL_LINKS.map((s) => {
+                    const Icon = s.icon;
+
+                    return (
                       <Link
-                        href={p.href}
-                        className="text-sm text-slate-700 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
+                        key={s.label}
+                        href={s.href}
+                        aria-label={t("footer.socialAria", {
+                          label: s.label,
+                        })}
+                        className="footer-social-link"
                       >
-                        {t(p.name)}
+                        <Icon size={16} aria-hidden />
                       </Link>
-                    </li>
-                  ))}
-                </ul>
+                    );
+                  })}
+                </div>
               </div>
-            ))}
-          </div>
 
-          <div className="flex flex-col gap-2" id="mail">
-            <h3 className="text-base font-semibold">
-              {t("footer.newsletter.title")}
-            </h3>
-            <p className="text-sm text-slate-700 dark:text-slate-300">
-              {t("footer.newsletter.desc")}
-            </p>
+              <p className="mt-7 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+                <span className="font-semibold text-zinc-700 dark:text-zinc-300">
+                  {t("brand.name")}
+                </span>{" "}
+                © {year} — {t("footer.rights")}
+              </p>
+            </div>
 
-            <form
-              className="mt-2 flex flex-col lg:flex-row gap-3"
-              onSubmit={async (e) => {
-                e.preventDefault();
-                const form = e.currentTarget as HTMLFormElement;
-                const formData = new FormData(form);
-                const email = String(formData.get("email") ?? "").trim();
-                if (!email) return;
-                try {
-                  const res = await instance.post("/api/mail", {
-                    email,
-                    addTime: new Date().toISOString(),
-                  });
-                  toast.success(res?.data?.message);
-                  form.reset();
-                } catch (err: any) {
-                  toast.error(err?.response?.data?.error);
-                }
-              }}
+            <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:gap-9">
+              {FOOTER_GROUPS.map((group) => (
+                <nav key={group.title} aria-label={t(group.title)}>
+                  <h3 className="mb-4 text-xs font-black uppercase tracking-[0.18em] text-sky-700 dark:text-sky-300">
+                    {t(group.title)}
+                  </h3>
+
+                  <ul className="space-y-2.5">
+                    {group.items.map((p) => (
+                      <li key={`${group.title}-${p.href}`}>
+                        <Link href={p.href} className="footer-link">
+                          {t(p.label)}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              ))}
+            </div>
+
+            <div
+              id="mail"
+              className="rounded-3xl border border-sky-400/15 bg-white/35 p-5 backdrop-blur-xl dark:bg-white/[0.035] sm:p-6"
             >
-              <input
-                placeholder={t("footer.newsletter.placeholder")}
-                name="email"
-                type="email"
-                required
-                className="border border-sky-400 dark:border-sky-700 rounded-lg p-2 bg-transparent text-black dark:text-white w-full"
-              />
-              <button
-                type="submit"
-                className="bg-sky-700 hover:bg-sky-800 text-white rounded-lg text-nowrap p-2 w-1/3
-             focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
-             focus-visible:ring-sky-400 focus-visible:ring-offset-zinc-900"
+              <h3 className="text-xs font-black uppercase tracking-[0.18em] text-sky-700 dark:text-sky-300">
+                {t("footer.newsletter.title")}
+              </h3>
+
+              <p className="typo-body mt-3">{t("footer.newsletter.desc")}</p>
+
+              <form
+                onSubmit={handleSubscribe}
+                className="mt-5 grid gap-2 sm:grid-cols-[1fr_auto]"
               >
-                {t("contact.button")}
-              </button>
-            </form>
+                <input
+                  name="email"
+                  type="email"
+                  required
+                  placeholder={t("footer.newsletter.placeholder")}
+                  className="h-12! p-3! text-sm!"
+                  aria-label={t("footer.newsletter.placeholder")}
+                />
+
+                <Button
+                  type="submit"
+                  size="md"
+                  icon={FiArrowRight}
+                  iconPosition="right"
+                  className="h-12! shrink-0"
+                >
+                  {t("footer.newsletter.button")}
+                </Button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="border-t border-black/10 dark:border-white/10 mt-6">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 text-center text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-          <Link
-            href="/github"
-            className="font-semibold hover:text-sky-600 dark:hover:text-sky-400"
-          >
-            {t("footer.legal.copyright")}
-          </Link>{" "}
-          © {new Date().getFullYear()} — All rights reserved.
-        </div>
-      </div>
+      </Container>
     </footer>
   );
-};
-
-export default Footer;
+}

@@ -1,10 +1,10 @@
 "use client";
 
-import { FiYoutube, FiEye, FiPlay } from "react-icons/fi";
 import Image from "next/image";
-import { AnimatedSection } from "@/components/Globals/AnimatedSection";
-import { Link } from "@/components/Globals/Link";
+import { Section } from "@/components/ui/Section";
+import { Link } from "@/components/ui/Link";
 import { useI18n } from "@/lib/i18n";
+import { FiEye, FiPlayCircle, FiYoutube } from "react-icons/fi";
 
 type YtItem = {
   id: string;
@@ -14,7 +14,7 @@ type YtItem = {
   views: number;
 };
 
-export default function YouTubeFeed({
+export function YouTubeFeed({
   items,
   loading = false,
 }: {
@@ -26,11 +26,13 @@ export default function YouTubeFeed({
   const nf = new Intl.NumberFormat("tr-TR");
 
   return (
-    <AnimatedSection id="yt" className="pt-2 sm:pt-4 pb-6 sm:pb-10" mode="view">
-      <div className="space-y-3">
+    <Section id="yt" className="pt-2 sm:pt-4 pb-8 md:pb-12">
+      <div className="space-y-4">
         <div className="flex items-center gap-2">
-          <FiYoutube className="w-5 h-5" aria-hidden="true" focusable="false" />
-          <h3 className="text-lg font-semibold">{t("social.youtubeTitle")}</h3>
+          <FiYoutube size={18} aria-hidden />
+          <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
+            {t("social.youtubeTitle")}
+          </h3>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
@@ -38,7 +40,8 @@ export default function YouTubeFeed({
             Array.from({ length: 8 }).map((_, i) => (
               <div
                 key={i}
-                className="relative overflow-hidden rounded-2xl bg-white/90 dark:bg-zinc-900/90 ring-1 ring-black/5 dark:ring-white/10"
+                className="relative overflow-hidden rounded-2xl glass
+                           ring-1 ring-black/5 dark:ring-white/10"
               >
                 <div className="h-1.5 bg-linear-to-r from-sky-500 via-cyan-500 to-indigo-500 opacity-90" />
                 <div className="w-full aspect-video animate-pulse bg-zinc-200/60 dark:bg-white/10" />
@@ -61,13 +64,11 @@ export default function YouTubeFeed({
                 <Link
                   key={v.id}
                   href={`https://www.youtube.com/watch?v=${v.id}`}
-                  className="
-                    group relative block overflow-hidden rounded-2xl
-                    bg-white/90 dark:bg-zinc-900/90
-                    ring-1 ring-black/5 dark:ring-white/10
-                    hover:shadow-md transition focus:outline-none
-                    focus-visible:ring-2 focus-visible:ring-sky-400/60
-                  "
+                  blank
+                  className="group relative block overflow-hidden rounded-2xl
+                             glass ring-1 ring-black/5 dark:ring-white/10
+                             hover:ring-sky-500/40 transition-all
+                             dark:hover:shadow-[0_0_24px_-6px_rgba(56,189,248,0.4)]"
                 >
                   <div className="relative">
                     <Image
@@ -80,85 +81,60 @@ export default function YouTubeFeed({
                       height={720}
                       loading="lazy"
                       sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
-                      className="
-                        w-full aspect-video object-cover
-                        transition-transform duration-300 group-hover:scale-[1.03]
-                      "
-                    />
-
-                    <div
-                      aria-hidden
-                      className="
-                        pointer-events-none absolute inset-0
-                        bg-linear-to-t from-black/35 via-black/10 to-transparent
-                      "
+                      className="w-full aspect-video object-cover transition-transform duration-300
+                                 group-hover:scale-[1.03]"
                     />
                     <div
                       aria-hidden
-                      className="
-                        absolute inset-0 grid place-items-center
-                        opacity-0 group-hover:opacity-100 transition
-                      "
+                      className="pointer-events-none absolute inset-0
+                                 bg-linear-to-t from-black/40 via-black/10 to-transparent"
+                    />
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 grid place-items-center
+                                 opacity-0 group-hover:opacity-100 transition"
                     >
                       <div
-                        className="
-                          flex items-center gap-2 rounded-full px-3 py-1.5
-                          bg-black/60 text-white text-xs
-                          ring-1 ring-white/20
-                        "
+                        className="flex items-center gap-2 rounded-full px-3 py-1.5
+                                      bg-black/60 text-white text-xs ring-1 ring-white/20"
                       >
-                        <FiPlay
-                          className="w-4 h-4"
-                          aria-hidden="true"
-                          focusable="false"
-                        />
+                        <FiPlayCircle size={14} aria-hidden />
                         {t("social.stats.badges.watch")}
                       </div>
                     </div>
 
-                    {typeof v.views === "number" && (
+                    {typeof v.views === "number" ? (
                       <span
-                        className="
-                          absolute bottom-2 left-2 inline-flex items-center gap-1.5
-                          text-[11px] px-2 py-1 rounded-md
-                          bg-black/70 text-white ring-1 ring-white/20
-                        "
+                        className="absolute bottom-2 left-2 inline-flex items-center gap-1.5
+                                       text-[11px] px-2 py-1 rounded-md
+                                       bg-black/70 text-white ring-1 ring-white/20"
                       >
-                        <FiEye
-                          className="w-3.5 h-3.5"
-                          aria-hidden="true"
-                          focusable="false"
-                        />
+                        <FiEye size={12} aria-hidden />
                         {nf.format(v.views)}
                       </span>
-                    )}
+                    ) : null}
                     <span
-                      className="
-                        absolute bottom-2 right-2 text-[11px]
-                        px-2 py-1 rounded-md
-                        bg-black/60 text-white ring-1 ring-white/20
-                      "
+                      className="absolute bottom-2 right-2 text-[11px] px-2 py-1 rounded-md
+                                     bg-black/60 text-white ring-1 ring-white/20"
                     >
                       {dateStr}
                     </span>
                   </div>
 
                   <div className="p-3">
-                    <div className="text-sm font-semibold leading-snug line-clamp-2 text-zinc-900 dark:text-zinc-100">
+                    <div
+                      className="text-sm font-semibold leading-snug line-clamp-2
+                                    text-zinc-900 dark:text-zinc-100"
+                    >
                       {v.title}
                     </div>
                   </div>
-
-                  <div
-                    aria-hidden
-                    className="absolute inset-0 rounded-2xl ring-1 ring-sky-500/30 opacity-0 group-hover:opacity-100 transition"
-                  />
                 </Link>
               );
             })
           )}
         </div>
       </div>
-    </AnimatedSection>
+    </Section>
   );
 }

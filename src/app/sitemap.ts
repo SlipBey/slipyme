@@ -1,22 +1,28 @@
-import { CONFIG } from "@/lib/seo";
+import type { MetadataRoute } from "next";
+import { SITE } from "@/config/site";
 
-export default async function sitemap() {
-  const base = CONFIG.SEO.publishDomain;
+const ROUTES = [
+  "",
+  "about",
+  "projects",
+  "contact",
+  "carier",
+  "social",
+  "social-responsibility",
+  "media",
+  "music",
+  "policies/kvkk",
+  "policies/tos",
+  "policies/privacy",
+  "policies/cookies",
+];
+
+export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  return [
-    { url: `${base}/`, lastModified: now },
-    { url: `${base}/about`, lastModified: now },
-    { url: `${base}/projects`, lastModified: now },
-    { url: `${base}/social`, lastModified: now },
-    { url: `${base}/csr`, lastModified: now },
-    { url: `${base}/career`, lastModified: now },
-    { url: `${base}/contact`, lastModified: now },
-    { url: `${base}/social`, lastModified: now },
-    { url: `${base}/social-responsibility`, lastModified: now },
-    { url: `${base}/media`, lastModified: now },
-    { url: `${base}/policies/privacy`, lastModified: now },
-    { url: `${base}/policies/cookies`, lastModified: now },
-    { url: `${base}/policies/kvkk`, lastModified: now },
-    { url: `${base}/policies/tos`, lastModified: now },
-  ];
+  return ROUTES.map((path) => ({
+    url: path ? `${SITE.url}/${path}` : `${SITE.url}/`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: path === "" ? 1 : 0.7,
+  }));
 }

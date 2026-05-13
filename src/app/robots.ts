@@ -1,8 +1,10 @@
-import { CONFIG } from "@/lib/seo";
-export default function robots() {
+import type { MetadataRoute } from "next";
+import { SITE } from "@/config/site";
+
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: [{ userAgent: "*", allow: "/" }],
-    sitemap: `${CONFIG.SEO.publishDomain}/sitemap.xml`,
-    host: CONFIG.SEO.publishDomain,
+    sitemap: `${SITE.url}/sitemap.xml`,
+    host: SITE.url,
   };
 }

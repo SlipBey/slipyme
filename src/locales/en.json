@@ -7,29 +7,34 @@
     "more": "More",
     "csr": "Social Responsibility",
     "social": "Social Media",
-    "notfound": "Not Found"
+    "notfound": "Page Not Found",
+    "music": "Music"
   },
   "navbar": {
     "button": {
       "project": "Got a project?",
-      "contact": "Let's Get in Touch"
-    }
+      "contact": "Let's talk"
+    },
+    "switchTheme": "Toggle theme",
+    "switchLang": "Switch language",
+    "mobileAria": "Primary mobile navigation",
+    "secondaryAria": "Secondary navigation"
   },
-  "about": "Slipyme was founded to deliver top-tier services across various industries. Our mission is to integrate the sectors we operate in and produce high-quality solutions. We are currently active in software, design, and gaming. In software, we carry out projects across a wide range including mobile, desktop, web-based, websites, embedded, electronics, and Arduino.\n\nOur software philosophy is to offer unique solutions through customizable, tailor-made software packages. In design, we specialize in graphic design and create visuals tailored to client needs. We integrate visual assets into our software projects or offer them for sale depending on requirements. We run our workflows with in-house algorithmic tools and AIs. Since clients expect precise outcomes from us, we aim to provide customer-centric solutions in this field as well.",
+  "about": "Slipyme is a technology company delivering end-to-end solutions across software, design, and digital media. Our mission is to integrate the disciplines we operate in and deliver scalable, sustainable, and high-quality products to our clients. We work across mobile, web, desktop, embedded, and gaming, building bespoke architectures and delivery models for every engagement.\n\nOur software practice is built on customizable solution suites and modern industry standards. On the design side we cover graphic, brand, and product UI work — integrating outputs into our software projects or shipping them as standalone deliverables. We support our processes with transparent reporting and data-driven decision-making, with the client need at the center of every stage.",
   "contact": {
     "emails": {
       "contact": "General",
-      "media": "Business Offers, Sponsorships, etc.",
+      "media": "Business Development & Sponsorships",
       "jobs": "Job Applications"
     },
     "subjects": {
       "label": "Subject",
       "general": "General Contact",
-      "project": "Project / Offer",
+      "project": "Project / Proposal",
       "collab": "Collaboration",
       "support": "Technical Support"
     },
-    "description": "You can fill out the form to contact us.",
+    "description": "Fill in the form below and our team will get back to you as soon as possible.",
     "name": {
       "label": "Full Name",
       "placeholder": "Full Name"
@@ -42,101 +47,111 @@
     },
     "message": {
       "label": "Your Message",
-      "placeholder": "Your Message"
+      "placeholder": "Write your message..."
     },
     "button": "Send",
-    "sending": "Sending"
+    "sending": "Sending",
+    "success": "Your message has been received",
+    "error": "Message could not be sent"
   },
   "projects": {
     "explore": "Explore",
-    "site": "Site",
-    "github": "Github",
+    "site": "Website",
+    "github": "GitHub",
     "details": {
       "open": "Details",
       "prev": "Previous",
       "next": "Next",
-      "clickToOpen": "Click On the Image"
+      "clickToOpen": "Click the image"
+    },
+    "status": {
+      "production": "Production",
+      "beta": "Beta",
+      "rd": "R&D",
+      "archived": "Archived"
     },
     "items": {
       "code": {
         "title": "Slipyme Code",
-        "excerpt": "Slipyme’s Developer Platform.",
-        "description": "Slipyme’s platform designed for developers to share code and help each other. The project was discontinued before launch. We are now pursuing this goal as part of another consolidated project."
+        "excerpt": "Developer community platform",
+        "description": "Originally positioned as a community platform for developers to share code and collaborate. The product has since been archived; its functionality is being incorporated into a next-generation unified platform."
       },
       "botlist": {
         "title": "Slipyme Botlist",
-        "excerpt": "Slipyme Discord Botlist & Serverlist",
-        "description": "Slipyme’s Discord Botlist & Serverlist project. Due to Discord’s upcoming server bot limits that would block botlists, the project was discontinued. We plan to bring it back later as a Serverlist with revisions."
+        "excerpt": "Discord bot & server listing platform",
+        "description": "A Discord ecosystem listing for bots and servers. Following platform policy changes, the product has been archived; the server-listing component is being re-engineered with a new architecture."
       },
       "todolist": {
         "title": "Slipyme Todolist",
-        "excerpt": "Slipyme’s Todolist Project",
-        "description": "Slipyme’s innovative Todolist project. It was closed due to low usage, but we will merge it into an upcoming project."
+        "excerpt": "Productivity-focused task manager",
+        "description": "A task management product designed for individual users. Based on usage metrics it has been archived; its modules will be integrated into our upcoming unified productivity platform."
       },
       "blog": {
         "title": "Slipyme Blog",
-        "excerpt": "Slipyme's Blog Site",
-        "description": "Slipyme's Own Blog Project! The project was shut down due to low usage. However, in the future, we will combine our new project with the blog site."
+        "excerpt": "Corporate publishing platform",
+        "description": "Our blog product for corporate content publishing. Archived as part of our strategic roadmap; its content infrastructure is being migrated to our new content ecosystem."
       },
       "deprem": {
         "title": "Slipyme Earthquake",
-        "excerpt": "What should be done in an earthquake? Which resources help? A support knowledge base.",
-        "description": "A wiki-like site we prepared after the earthquake in February 2023 as a social responsibility project. We are now working on a Disaster Management project, which this effort has evolved into."
+        "excerpt": "Disaster information & resource hub",
+        "description": "Knowledge base launched as a social-responsibility initiative after the February 2023 earthquakes. The work informed our broader Disaster Management System project, which is now under active development."
       },
       "design": {
         "title": "Slipyme Design",
-        "excerpt": "Slipyme’s Designer Platform.",
-        "description": "A platform founded for designers to create visuals tailored to your vision or provide technical assistance. We are now consolidating this objective under another project, so development is paused and the platform remains as a concept."
+        "excerpt": "Corporate design studio",
+        "description": "Our in-house design studio for brand identity, visual design, and digital content. We deliver tailored corporate visual systems and content packages for our clients."
       },
       "music": {
         "title": "Slipyme Music",
-        "excerpt": "Slipyme’s Music Platform (Coming Soon!).",
-        "description": "A website developed for the music industry under Slipyme Company. Under Slipyme Music, we will produce and list our music works. Images are AI-generated for concept purposes."
+        "excerpt": "Music production platform",
+        "description": "A platform for publishing music produced under Slipyme. The product is in preparation; promotional visuals are AI-generated for concept purposes."
       },
       "game": {
         "title": "Slipygame",
-        "excerpt": "Slipyme’s Game Platform (Coming Soon!).",
-        "description": "A platform where we publish games developed by Slipyme. It will showcase our games and include mini-games to pass the time. Images are AI-generated for concept purposes."
+        "excerpt": "Game publishing & mini-game platform",
+        "description": "A platform for publishing Slipyme-developed games and offering casual mini-game experiences. Currently in development; promotional visuals are AI-generated for concept purposes."
       }
     }
   },
   "slides": {
     "software": {
-      "title": "Software Development",
-      "text": "We craft custom software with modern technology.",
+      "title": "Software Engineering",
+      "text": "We build scalable and sustainable enterprise software with modern technology.",
       "button": {
         "text": "Start Your Project"
       }
     },
     "game": {
       "title": "Game Development",
-      "text": "We design fun and addictive games.",
+      "text": "We design original game experiences with engaging mechanics and quality visuals.",
       "button": {
         "text": "Details"
       }
     },
     "design": {
-      "title": "Graphic Design",
-      "text": "Original designs to elevate your brand.",
+      "title": "Graphic & Brand Design",
+      "text": "We craft distinctive visual identities and digital content that elevate your brand.",
       "button": {
         "text": "View Portfolio"
       }
     },
     "social": {
-      "title": "Social Media",
-      "text": "We provide effective social media strategies.",
+      "title": "Social Media Management",
+      "text": "We deliver data-driven social media strategies that reach your target audience.",
       "button": {
         "text": "Get a Quote"
       }
     }
   },
   "footer": {
-    "desc": "Slipyme delivers modern solutions with software, graphic design, gaming, and social media projects.",
+    "desc": "Slipyme delivers end-to-end corporate solutions across software, design, and digital content.",
     "newsletter": {
-      "title": "Stay in the loop",
-      "desc": "Join our mailing list for updates",
-      "placeholder": "E-mail address",
-      "button": "Subscribe"
+      "title": "Join our newsletter",
+      "desc": "Get product updates and announcements via e-mail.",
+      "placeholder": "Your e-mail address",
+      "button": "Subscribe",
+      "success": "Subscription received",
+      "error": "Subscription failed"
     },
     "legal": {
       "corporate": "Corporate",
@@ -145,22 +160,26 @@
     },
     "links": {
       "sr": "Social Responsibility",
-      "media": "Media",
-      "career": "Careers",
-      "kvkk": "KVKK",
+      "media": "Media Kit",
+      "carrier": "carriers",
+      "kvkk": "KVKK Disclosure",
       "tos": "Terms of Service",
       "privacy": "Privacy Policy",
-      "cookies": "Cookie Policy"
-    }
+      "cookies": "Cookie Policy",
+      "website": "Website"
+    },
+    "rights": "All rights reserved.",
+    "socialAria": "Slipyme {label} link"
   },
   "error404": {
-    "title": "This place no longer exists…",
-    "description": "This page once existed, but melted away like glaciers.",
-    "redirect": "Redirecting to home…",
-    "imageAlt": "Sad Penguin",
-    "swimmingAlt": "Swimming Penguin"
+    "title": "This page no longer exists",
+    "description": "The page you're looking for may have been removed or relocated. Redirecting you to the home page.",
+    "redirect": "Redirecting to home...",
+    "imageAlt": "Pengu — page not found",
+    "swimmingAlt": "Pengu — swimming mascot",
+    "cta": "Back to Home"
   },
-  "valuesTitle": "Values & Vision",
+  "valuesTitle": "Our Values & Vision",
   "values": [
     {
       "title": "Trust",
@@ -168,15 +187,15 @@
     },
     {
       "title": "Quality",
-      "desc": "Measurable success criteria in every delivery."
+      "desc": "Every delivery meets measurable success criteria."
     },
     {
       "title": "Transparency",
-      "desc": "Open communication in processes and reporting."
+      "desc": "Open communication across processes and reporting."
     },
     {
       "title": "Innovation",
-      "desc": "Continuous improvement with R&D and modern technologies."
+      "desc": "Continuous improvement with R&D and modern tech."
     },
     {
       "title": "Sustainability",
@@ -187,63 +206,59 @@
       "desc": "Solutions shaped by your needs."
     }
   ],
-  "timelineTitle": "Brief Timeline",
+  "timelineTitle": "Corporate Timeline",
   "timeline": [
     {
       "y": "2021",
       "t": "Foundation",
-      "d": "We began operations as Slipyme Software on October 30, 2021. We set off with a team of five and started taking on freelance work."
+      "d": "On October 30, 2021 we began operations as Slipyme Software with a five-person team. We built our product-development experience through early-stage freelance work."
     },
     {
       "y": "2022",
-      "t": "First Growth Steps",
-      "d": "On March 22, 2022, we adopted the name Slipyme Company and started activating our projects. As we launched our own projects, we gained recognition."
+      "t": "Corporate Transition",
+      "d": "On March 22, 2022 we established our corporate structure under the name Slipyme Company and began launching our own products."
     },
     {
       "y": "2023",
-      "t": "First Results",
-      "d": "The projects we established started bearing fruit. We began planning the future properly and gained visibility into our path forward."
+      "t": "First Scaling",
+      "d": "Our product portfolio reached its founding goals. We redefined our strategic roadmap and built a mid-term growth plan."
     },
     {
       "y": "2024",
-      "t": "Scaling Up",
-      "d": "For three years our team advanced with stability. We grew from a team of 8–10 to 17, left freelance work, and focused on our own projects."
+      "t": "Growth & Team",
+      "d": "After three years of steady operation we grew the team to 17. We exited the freelance model and focused fully on our own products."
     },
     {
       "y": "2025",
-      "t": "Scaling Up",
-      "d": "With a swift decision, we paused all projects and kicked off new ones. By the end of 2026, we plan to bring three major projects to life."
+      "t": "Strategy Refresh",
+      "d": "We consolidated existing projects and transitioned to our next-generation product line. Three flagship products are planned for launch by the end of 2026."
     }
   ],
   "expertiseTitle": "Areas of Expertise",
-  "expertiseDesc": "We offer comprehensive solutions in software development, graphic design, gaming, and social media.",
-  "whatWeDoTitle": "What Do We Do?",
-  "whatWeDoDesc": "Leveraging our cross-sector experience, we deliver software, design, and digital solutions tailored to our clients. We use modern technologies and a bespoke approach for every project.",
+  "expertiseDesc": "We deliver end-to-end corporate solutions across software, design, gaming, and social media.",
+  "whatWeDoTitle": "What We Do",
+  "whatWeDoDesc": "Our multi-disciplinary team produces tailored software, design, and digital products with modern technology and a data-driven approach.",
   "cta": {
     "title": "Got a project?",
-    "subtitle": "Tell us what you need; let’s craft the right solution together."
+    "subtitle": "Let's define the need together and design the right solution."
   },
   "projectsPage": {
     "title": "Our Projects",
-    "subtitle": "Our real projects and software solutions. Check out our studio for design work.",
-    "inactiveNote": "This project is not currently in use.",
+    "subtitle": "Products in production, work in beta, and ongoing R&D initiatives.",
+    "inactiveNote": "This project has been archived.",
     "types": {
       "all": "All",
       "software": "Software",
       "design": "Design",
       "socialResponsibility": "Social Responsibility",
       "game": "Game",
-      "gameSoon": "SlipyGame is Coming Soon!",
+      "gameSoon": "Slipygame is coming soon",
       "socialMedia": "Social Media"
     },
-    "empty": "No projects match the filters.",
-    "badges": {
-      "active": "Active",
-      "inactive": "Inactive"
-    },
+    "empty": "No projects match the selected filters.",
     "solutions": {
       "title": "Our Software Solutions",
-      "subtitle": "With packaged solution themes tailored to your needs, we offer rapid starts and sustainable delivery."
+      "subtitle": "Packaged solution lines tailored to your needs — fast starts and sustainable delivery."
     },
     "groups": {
       "software": "Software Projects",
@@ -251,8 +266,8 @@
     },
     "cta": {
       "title": "Ready to talk about your project?",
-      "subtitle": "Tell us your needs and we’ll design the best solution together.",
-      "button": "Let's Talk About Your Project"
+      "subtitle": "Tell us your needs and we'll design the right solution together.",
+      "button": "Let's Talk"
     }
   },
   "solutionsPage": {
@@ -262,62 +277,62 @@
     },
     "web": {
       "title": "Web Applications",
-      "desc": "Web applications built for the browser."
+      "desc": "Enterprise web applications built with scalable architecture."
     },
     "discord": {
       "title": "Discord Bots",
-      "desc": "Customized Discord bot solutions for community management."
+      "desc": "Custom Discord bot solutions for community management."
     },
     "erp": {
       "title": "ERP Solutions",
-      "desc": "End-to-end modules to manage your corporate processes."
+      "desc": "Modular ERP systems to manage corporate processes end-to-end."
     },
     "ecom": {
       "title": "E-Commerce",
-      "desc": "User-friendly e-commerce systems with integrated sales and payment infrastructure."
+      "desc": "User-friendly e-commerce solutions with integrated payments and logistics."
     },
     "ai": {
       "title": "Artificial Intelligence",
-      "desc": "Custom model building and algorithmic solutions."
+      "desc": "Custom model development and algorithm-based solutions."
     },
     "cms": {
       "title": "CMS",
-      "desc": "Flexible CMS solutions to manage your content easily."
+      "desc": "Flexible content management systems to manage content with ease."
     },
     "corp": {
-      "title": "Corporate Website",
+      "title": "Corporate Web",
       "desc": "Modern designs for company profiles, portfolios, and service sites."
     },
     "seo": {
       "title": "SEO & Analytics",
-      "desc": "Search visibility, content audits, competitor analysis, and automated SEO bots."
+      "desc": "Search visibility, content audits, competitor analysis, and automation."
     }
   },
   "design": {
     "showcase": {
       "title": "Design Showcase",
-      "cta": "Go to the Media page for more work"
+      "cta": "Visit the Media page for more work"
     },
     "solutions": {
       "title": "Our Design Services",
-      "subtitle": "We provide design support in the following areas.",
+      "subtitle": "We provide corporate design support in the following areas.",
       "ps": {
         "title": "Photoshop",
-        "desc": "Image editing, manipulation, banners, and social media visuals."
+        "desc": "Image editing, manipulation, banners and social media visuals."
       },
       "ai": {
         "title": "Adobe Illustrator",
-        "desc": "Vector illustration, logo, and corporate identity design."
+        "desc": "Vector illustration, logo and corporate identity design."
       },
       "ae": {
         "title": "After Effects",
-        "desc": "Motion graphics, animated intros/outros, and transitions."
+        "desc": "Motion graphics, animated intros/outros and transitions."
       }
     }
   },
   "media": {
-    "title": "Photos",
-    "text": "View press and promotional visuals. Unauthorized use of our materials is prohibited.",
+    "title": "Media Kit",
+    "text": "Visuals for press and promotional use. Unauthorized use of our materials is prohibited.",
     "categories": {
       "all": "All",
       "logos": "Logos",
@@ -328,13 +343,13 @@
     }
   },
   "csr": {
-    "text": "Projects that add value to society and steps toward sustainability.",
+    "text": "Initiatives that add value to society and steps toward sustainability.",
     "hero": {
-      "title": "We reduce our carbon footprint and protect life together",
+      "title": "Reducing our carbon footprint and protecting life together",
       "subtitle": "Our focus areas: carbon reduction, animal welfare, and climate awareness."
     },
     "pillars": {
-      "title": "Our Focus Areas"
+      "title": "Focus Areas"
     },
     "initiatives": {
       "title": "Our Initiatives"
@@ -347,7 +362,7 @@
     },
     "announce": {
       "title": "Join Us",
-      "note": "Donations and volunteering applications are coming soon. Infrastructure preparations are underway.",
+      "note": "Donations and volunteer applications will open soon. Infrastructure work is in progress.",
       "donateText": "Donate",
       "volunteerText": "Volunteer"
     },
@@ -359,24 +374,24 @@
     },
     "transparency": {
       "title": "Transparency",
-      "desc": "When the donation system launches, donors will receive periodic e-mail reports; monthly totals for donations and pet food will also be published on the site."
+      "desc": "When the donation system goes live, donors will receive periodic e-mail reports; monthly totals for donations and pet food will also be published on the site."
     },
     "faqs": {
-      "title": "FAQs"
+      "title": "Frequently Asked Questions"
     },
     "dict": {
       "pillars": {
         "carbon": {
           "title": "Carbon Reduction",
-          "desc": "Tracking and reporting emissions from electricity, heating, and logistics."
+          "desc": "Energy efficiency, measurement and offsetting."
         },
         "animals": {
           "title": "Animal Welfare",
-          "desc": "Support for shelter, nutrition, and treatment."
+          "desc": "Shelter, nutrition and treatment programs."
         },
         "climate": {
           "title": "Climate Awareness",
-          "desc": "Education, workshops, and community events."
+          "desc": "Education, workshops and community events."
         },
         "safety": {
           "title": "Nature Safety",
@@ -386,11 +401,11 @@
       "initiatives": {
         "ofisKarbonOlcum": {
           "title": "Office Carbon Footprint Measurement",
-          "desc": "Tracking and reporting emissions from electricity, heating, and logistics."
+          "desc": "Tracking and reporting emissions from electricity, heating and logistics."
         },
         "afetYonetim": {
           "title": "Disaster Management Project",
-          "desc": "Digitalizing volunteer coordination, inventory, and emergency communication flows."
+          "desc": "Digitalizing volunteer coordination, inventory and emergency communication flows."
         },
         "hayvanBakimSim": {
           "title": "Pet Care Simulation",
@@ -398,25 +413,25 @@
         },
         "yesilLojistik": {
           "title": "Green Logistics",
-          "desc": "Carbon-reduction-focused planning and offsetting for cargo/visit routes."
+          "desc": "Carbon-reduction-focused planning for cargo and visit routes."
         },
         "sogukZincirMama": {
           "title": "Cold-Chain Pet Food Support",
-          "desc": "Supply and distribution model to preserve pet food quality in high temperatures."
+          "desc": "A supply and distribution model that preserves pet food quality in high temperatures."
         }
       },
       "faqs": {
         "bagis": {
           "q": "Can I donate now?",
-          "a": "Not yet. We will announce it here and send e-mail notifications when the system is live."
+          "a": "Not yet. We will announce it on this page and send e-mail notifications when the system is live."
         },
         "rapor": {
           "q": "How will donation reports be shared?",
-          "a": "When the donation system launches, donors will receive progress reports by e-mail, and monthly totals for donations and pet food will be published on the site."
+          "a": "Donors will receive periodic progress reports by e-mail; monthly summary reports will be published on the site."
         },
         "gonullu": {
           "q": "Are you accepting volunteers?",
-          "a": "When the infrastructure is ready, we will open the application form and share it here."
+          "a": "When the infrastructure is ready, the application form will open and be shared here."
         }
       }
     },
@@ -424,14 +439,14 @@
   },
   "social": {
     "title": "Our Social Media Management",
-    "text": "We deliver strong content through effective social media management strategies.",
-    "subtitle": "We manage all social media accounts under Slipyme under one roof and reach millions with our content.",
+    "text": "We create measurable value for your brand with data-driven strategies.",
+    "subtitle": "We manage every Slipyme social media channel under one roof and reach broad audiences with our content.",
     "followUs": "Follow Us",
     "statsTitle": "Channel Statistics",
     "loading": {
-      "instagram": "Loading Instagram posts…",
-      "youtube": "Loading YouTube videos…",
-      "generic": "Loading statistics…"
+      "instagram": "Loading Instagram posts...",
+      "youtube": "Loading YouTube videos...",
+      "generic": "Loading statistics..."
     },
     "instagramTitle": "Instagram Posts",
     "youtubeTitle": "Latest Videos",
@@ -457,23 +472,23 @@
     "errors": {
       "stats": "Statistics could not be loaded, please try again."
     },
-    "featuresTitle": "What Do We Do?",
+    "featuresTitle": "What We Do",
     "features": [
-      "Content planning and regular publishing",
-      "Channel analysis and reporting",
+      "Content planning and consistent publishing",
+      "Channel analytics and performance reporting",
       "Community management",
       "Sponsorships and ad partnerships",
       "Trend tracking and timely content"
     ],
     "cta": {
       "title": "Let's grow your content",
-      "subtitle": "We manage all your social media accounts under one roof and reach the right audience.",
+      "subtitle": "We manage all your social media channels under one roof and reach the right audience.",
       "secondary": "See our accounts"
     },
     "contactBtn": "Contact Us"
   },
   "team": {
-    "title": "People in Our Team",
+    "title": "Team Statistics",
     "subtitle": "We build with a compact, multi-disciplinary team.",
     "total": "Total",
     "cap": "Cap",
@@ -488,16 +503,56 @@
     },
     "members": {
       "title": "Our Team",
-      "subtitle": "Talented people who make up our team"
+      "subtitle": "The talented professionals who make up Slipyme"
     }
   },
-  "careerPage": {
-    "title": "Careers",
-    "subtitle": "We’ll share open positions here soon. To stay informed, subscribe below via e-mail or join our Discord.",
-    "badge": "Hiring Closed for Now",
+  "carrierPage": {
+    "eyebrow": "Slipyme Company carriers",
+    "title": "Join a team that builds, experiments, and has character",
+    "subtitle": "Open roles are limited right now, but we always want to meet strong candidates across software, design, content, and product development.",
+    "badge": "No open positions right now",
     "cta": {
       "discord": "Join Discord",
       "email": "Notify me by e-mail"
+    },
+    "culture": {
+      "items": [
+        {
+          "title": "We think like product people",
+          "desc": "We do not just produce screens; we connect users, business value, and sustainable architecture."
+        },
+        {
+          "title": "Small team, clear ownership",
+          "desc": "We value ownership, fast decisions, and visible contribution over crowded processes."
+        },
+        {
+          "title": "Design and software together",
+          "desc": "Interface, brand, backend, and product feel are shaped together instead of being delivered separately."
+        },
+        {
+          "title": "Room to experiment",
+          "desc": "We test new tools, AI-assisted workflows, and product ideas in a controlled way."
+        }
+      ]
+    },
+    "timeline": {
+      "eyebrow": "Application flow",
+      "title": "A simple and clear process",
+      "desc": "When a role opens, expectations, scope, and technical context are clarified early.",
+      "items": [
+        {
+          "title": "Intro call",
+          "desc": "We discuss the role, expectations, and working model."
+        },
+        {
+          "title": "Short review",
+          "desc": "Depending on the role, portfolio, code, or production samples are reviewed."
+        },
+        {
+          "title": "Mutual decision",
+          "desc": "If it fits, scope and starting plan are finalized."
+        }
+      ]
     }
   },
   "policies": {
@@ -506,10 +561,80 @@
     "contactEmail": "Contact"
   },
   "home": {
+    "eyebrow": "Slipyme Company",
+    "heroTitle": "A technology company unifying software, design, and digital content",
+    "heroSubtitle": "We deliver end-to-end corporate solutions across mobile, web, desktop, embedded, and gaming.",
+    "heroPrimaryCta": "View Our Projects",
+    "heroSecondaryCta": "Get in Touch",
     "contactCta": {
       "title": "Get in touch with us",
-      "subtitle": "Have a question, proposal, or project idea? Contact our team now.",
+      "subtitle": "Have a question, proposal, or project idea? Let our team get back to you.",
       "button": "Contact Us"
+    },
+    "aboutMore": "More About Us",
+    "projectMore": "All Projects"
+  },
+  "brand": {
+    "name": "Slipyme Company"
+  },
+  "carousel": {
+    "prev": "Previous slide",
+    "next": "Next slide",
+    "goto": "Go to slide {number}"
+  },
+  "common": {
+    "close": "Close",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "gallery": {
+    "open": "Open image",
+    "openNewTab": "Open image in new tab",
+    "download": "Download image",
+    "preview": "Preview {number}"
+  },
+  "music": {
+    "seo": {
+      "title": "Music",
+      "description": "Listen to Slipyme Music, SlipBey and SoftPenguins Labs releases on Spotify, Apple Music and YouTube Music."
+    },
+    "hero": {
+      "eyebrow": "Slipyme Music",
+      "title": "Slipyme Music releases",
+      "subtitle": "Listen to SlipBey and SoftPenguins Labs releases under Slipyme Music on Spotify, Apple Music and YouTube Music.",
+      "description": "Follow new singles, EPs and albums from one place with quick access to all official music platforms.",
+      "releasesCta": "View releases"
+    },
+    "platforms": {
+      "spotifySlipBey": "SlipBey",
+      "spotifySoftPenguinsLabs": "SoftPenguins Labs",
+      "appleMusic": "Apple Music",
+      "youtubeMusic": "YouTube Music"
+    },
+    "platformDescriptions": {
+      "spotifySlipBey": "Spotify artist profile",
+      "spotifySoftPenguinsLabs": "Spotify artist profile",
+      "appleMusic": "Apple Music artist profile",
+      "youtubeMusic": "YouTube channel"
+    },
+    "releases": {
+      "eyebrow": "Spotify",
+      "title": "Latest music releases",
+      "subtitle": "Releases fetched from the Spotify API are listed here. New content appears automatically as the API updates.",
+      "updatedAt": "Last updated: {{date}}",
+      "tracks": "{{count}} tracks",
+      "listenSpotify": "Listen on Spotify",
+      "error": "Spotify releases could not be loaded right now. You can still access releases through the platform links.",
+      "empty": "No Spotify releases are available to display."
+    },
+    "home": {
+      "title": "Slipyme Music releases are now on the website.",
+      "subtitle": "Quickly access SlipBey and SoftPenguins Labs releases through Spotify, Apple Music and YouTube Music.",
+      "cta": "Music page"
+    },
+    "projects": {
+      "title": "Music releases are also part of Slipyme.",
+      "subtitle": "Listen to SlipBey and SoftPenguins Labs releases under Slipyme Music through the official platforms."
     }
   }
 }

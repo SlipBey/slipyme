@@ -1,35 +1,23 @@
 "use client";
 
-import ContactForm from "./components/ContactForm";
-import ContactSocial from "./components/ContactSocial";
-import { useI18n } from "@/lib/i18n";
+import { useMemo } from "react";
 import { motion } from "framer-motion";
-import { fadeInUp } from "@/libs/animations";
-import { useEffect, useMemo, useState } from "react";
+import { Section } from "@/components/ui/Section";
+import { Card } from "@/components/ui/Card";
+import { ContactForm } from "./components/ContactForm";
+import { ContactSidebar } from "./components/ContactSidebar";
+import { useI18n } from "@/lib/i18n";
+import { fadeInUp, stagger } from "@/lib/motion";
 
-function useIsTouchDevice() {
-  const [isTouch, setIsTouch] = useState(false);
-  useEffect(() => {
-    const t =
-      typeof window !== "undefined" &&
-      ("ontouchstart" in window ||
-        (navigator.maxTouchPoints && navigator.maxTouchPoints > 0));
-    setIsTouch(Boolean(t));
-  }, []);
-  return isTouch;
-}
+const EMAIL_KEYS = ["contact", "media", "jobs"] as const;
+const SUBJECT_KEYS = ["general", "project", "collab", "support"] as const;
 
 export default function ContactClient() {
   const { t } = useI18n();
-  const isTouch = useIsTouchDevice();
-
-  const emailKeys = ["contact", "media", "jobs"] as const;
-  const subjectKeys = ["general", "project", "collab", "support"] as const;
 
   const companyEmails = useMemo(
     () =>
-      emailKeys.map((key) => ({
-        key,
+      EMAIL_KEYS.map((key) => ({
         label: t(`contact.emails.${key}`),
         email: `${key}@slipyme.com`,
       })),
@@ -38,7 +26,7 @@ export default function ContactClient() {
 
   const subjectOptions = useMemo(
     () =>
-      subjectKeys.map((key) => ({
+      SUBJECT_KEYS.map((key) => ({
         value: key,
         label: t(`contact.subjects.${key}`),
       })),
@@ -46,35 +34,28 @@ export default function ContactClient() {
   );
 
   return (
-    <div id="contact" className="py-5 sm:py-12">
-      <motion.section
-        initial="hidden"
-        animate={isTouch ? "show" : undefined}
-        whileInView={isTouch ? undefined : "show"}
-        viewport={isTouch ? undefined : { once: true, amount: 0.2 }}
-        className="mx-auto mt-6 grid gap-6 lg:grid-cols-2"
-      >
-        <motion.div
-          variants={fadeInUp}
-          className="rounded-2xl ring-1 ring-black/10 dark:ring-white/10 bg-white dark:bg-zinc-900 shadow-lg overflow-hidden"
-        >
-          <div className="h-1 w-full bg-linear-to-r from-sky-700 via-sky-600 to-sky-500" />
-          <div className="p-6 sm:p-8">
+    <Section id="contact" className="py-10 md:py-14" variants={stagger}>
+      <div className="grid items-stretch gap-6 lg:grid-cols-[1.04fr_.96fr]">
+        <motion.div variants={fadeInUp}>
+          <Card
+            variant="glass"
+            cap
+            className="h-full p-6 shadow-xl sm:p-8 lg:p-9"
+          >
             <ContactForm subjectOptions={subjectOptions} />
-          </div>
+          </Card>
         </motion.div>
 
-        <motion.div
-          variants={fadeInUp}
-          transition={{ delay: 0.08 }}
-          className="rounded-2xl ring-1 ring-black/10 dark:ring-white/10 bg-white dark:bg-zinc-900 shadow-lg overflow-hidden"
-        >
-          <div className="h-1 w-full bg-linear-to-r from-sky-700 via-sky-600 to-sky-500" />
-          <div className="p-6 sm:p-8">
-            <ContactSocial emails={companyEmails} />
-          </div>
+        <motion.div variants={fadeInUp}>
+          <Card
+            variant="glass"
+            cap
+            className="h-full overflow-hidden p-6 shadow-xl sm:p-8 lg:p-9"
+          >
+            <ContactSidebar emails={companyEmails} />
+          </Card>
         </motion.div>
-      </motion.section>
-    </div>
+      </div>
+    </Section>
   );
 }

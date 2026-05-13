@@ -1,90 +1,95 @@
 "use client";
 
-import { AnimatedSection } from "@/components/Globals/AnimatedSection";
-import Image from "next/image";
-import { Link } from "@/components/Globals/Link";
-import { m } from "framer-motion";
-import { fadeInUp, fadeIn, staggerContainer } from "@/libs/animations";
-import { useI18n } from "@/lib/i18n";
-import { DESIGN_SHOWCASE_IMAGES } from "../libs/design";
-import { ImageGalleryModal } from "@/features/media/components/Modal";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Section } from "@/components/ui/Section";
+import { Link } from "@/components/ui/Link";
+import { ImageGalleryModal } from "@/components/ui/ImageGalleryModal";
+import { fadeIn, fadeInUp, stagger } from "@/lib/motion";
+import { useI18n } from "@/lib/i18n";
+import { DESIGN_SHOWCASE_IMAGES } from "../lib/design";
+import { FiArrowRight } from "react-icons/fi";
 
-export default function DesignShowcaseSection({ max = 12 }: { max?: number }) {
+type Props = { max?: number };
+
+export function DesignShowcaseSection({ max = 12 }: Props) {
   const { t } = useI18n();
   const imgs = DESIGN_SHOWCASE_IMAGES.slice(0, max);
 
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalImages, setModalImages] = useState<string[]>([]);
-  const [modalIndex, setModalIndex] = useState(0);
+  const [open, setOpen] = useState(false);
+  const [index, setIndex] = useState(0);
 
-  const openGallery = (images: ReadonlyArray<string>, index: number) => {
-    setModalImages([...images]);
-    setModalIndex(index);
-    setModalOpen(true);
+  const openGallery = (i: number) => {
+    setIndex(i);
+    setOpen(true);
   };
 
   return (
-    <AnimatedSection id="design-showcase" className="py-8 sm:py-10" mode="view">
-      <div>
-        <m.h2 className="typo-section-title mb-2" variants={fadeInUp}>
-          {t("design.showcase.title")}
-        </m.h2>
+    <Section id="design-showcase" className="py-8 md:py-12" variants={stagger}>
+      <motion.h2 variants={fadeInUp} className="typo-section-title mb-6">
+        {t("design.showcase.title")}
+      </motion.h2>
 
-        <m.div
-          className="rounded-2xl bg-white dark:bg-[#16181d] ring-1 ring-black/10 dark:ring-white/10 p-4 sm:p-6"
-          variants={fadeIn}
+      <motion.div
+        variants={fadeIn}
+        className="rounded-2xl glass ring-1 ring-black/5 dark:ring-white/10 p-4 sm:p-6"
+      >
+        <motion.div
+          variants={stagger}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4"
         >
-          <m.div
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4"
-            variants={staggerContainer}
-          >
-            {imgs.map((src, i) => (
-              <m.button
-                key={`${src}-${i}`}
-                variants={fadeInUp}
-                className="rounded-xl overflow-hidden
-                           bg-white dark:bg-[#0f1216]
-                           ring-1 ring-black/10 dark:ring-white/10
-                           shadow-sm"
-                onClick={() => openGallery(imgs, i)}
-                aria-label="Görseli aç"
-              >
-                <div className="aspect-square p-2 flex items-center justify-center">
-                  <Image
-                    src={src}
-                    alt=""
-                    width={256}
-                    height={256}
-                    loading="lazy"
-                    sizes="(min-width:1280px) 12.5vw, (min-width:1024px) 16.66vw, (min-width:768px) 25vw, (min-width:640px) 33.33vw, 50vw"
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
-              </m.button>
-            ))}
-          </m.div>
-        </m.div>
+          {imgs.map((src, i) => (
+            <motion.button
+              key={`${src}-${i}`}
+              variants={fadeInUp}
+              onClick={() => openGallery(i)}
+              aria-label={t("gallery.open")}
+              className="rounded-xl overflow-hidden bg-white/70 dark:bg-zinc-900/40
+                         ring-1 ring-black/5 dark:ring-white/10 shadow-sm
+                         hover:ring-sky-500/40 transition"
+            >
+              <div className="aspect-square p-2 flex items-center justify-center">
+                <Image
+                  src={src}
+                  alt=""
+                  width={256}
+                  height={256}
+                  loading="lazy"
+                  sizes="(min-width:1280px) 12.5vw, (min-width:1024px) 16.6vw, (min-width:768px) 25vw, (min-width:640px) 33vw, 50vw"
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+            </motion.button>
+          ))}
+        </motion.div>
+      </motion.div>
 
-        <div className="mt-5 flex justify-center">
-          <Link
-            href="/media"
-            aria-label={`${t("design.showcase.title")} — ${t("design.showcase.cta")}`}
-          >
-            <span className="inline-flex items-center rounded-xl bg-blue-600 text-white px-4 py-2 text-sm font-semibold ring-1 ring-blue-500/60 hover:bg-blue-700">
-              {t("design.showcase.cta")}
-            </span>
-          </Link>
-        </div>
+      <div className="mt-6 flex justify-center">
+        <Link
+          href="/media"
+          className="group inline-flex items-center gap-2 rounded-xl
+                     bg-sky-600 hover:bg-sky-700 text-white px-5 py-2.5 text-sm font-semibold
+                     dark:bg-sky-500 dark:hover:bg-sky-400
+                     dark:shadow-[0_0_18px_-4px_rgba(56,189,248,0.55)]
+                     transition-all"
+        >
+          {t("design.showcase.cta")}
+          <FiArrowRight
+            size={16}
+            className="transition-transform group-hover:translate-x-1"
+            aria-hidden
+          />
+        </Link>
       </div>
 
       <ImageGalleryModal
-        images={modalImages}
-        isOpen={modalOpen}
-        currentIndex={modalIndex}
-        onClose={() => setModalOpen(false)}
-        onChange={(index) => setModalIndex(index)}
+        images={imgs}
+        isOpen={open}
+        currentIndex={index}
+        onClose={() => setOpen(false)}
+        onChange={setIndex}
       />
-    </AnimatedSection>
+    </Section>
   );
 }

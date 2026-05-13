@@ -1,17 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import { motion } from "framer-motion";
+import { Section } from "@/components/ui/Section";
+import { Link } from "@/components/ui/Link";
+import api from "@/lib/api";
+import { useI18n } from "@/lib/i18n";
+import { cn } from "@/lib/cn";
 import {
+  FiRefreshCcw,
   FiYoutube,
   FiInstagram,
-  FiRefreshCcw,
   FiArrowRight,
 } from "react-icons/fi";
-import { AnimatedSection } from "@/components/Globals/AnimatedSection";
-import { Link } from "@/components/Globals/Link";
-import api from "@/libs/api";
-import { motion } from "framer-motion";
-import { useI18n } from "@/lib/i18n";
 
 type StatsResponse = {
   updatedAt: string;
@@ -19,7 +20,10 @@ type StatsResponse = {
   youtube: { subs: number; views: number };
 };
 
-export default function SocialStats() {
+const fmt = (n: number) =>
+  Number.isFinite(n) ? new Intl.NumberFormat("tr-TR").format(n) : "0";
+
+export function SocialStats() {
   const { t } = useI18n();
   const [stats, setStats] = useState<StatsResponse | null>(null);
   const [loading, setLoading] = useState(true);
@@ -41,40 +45,34 @@ export default function SocialStats() {
 
   useEffect(() => {
     load();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <AnimatedSection id="stats" className="py-6 sm:py-12 pb-4!" mode="view">
+    <Section id="stats" className="py-8 md:py-12 pb-4!">
       {err && !loading ? (
-        <div className="rounded-2xl ring-1 ring-red-500/20 bg-red-50 text-red-700 dark:bg-red-500/10 dark:text-red-200 p-4 flex items-center justify-between mb-12">
+        <div
+          className="rounded-2xl ring-1 ring-rose-500/20 bg-rose-50 text-rose-700
+                        dark:bg-rose-500/10 dark:text-rose-200
+                        p-4 flex items-center justify-between mb-12"
+        >
           <span className="text-sm">{err}</span>
           <button
             onClick={load}
-            className="inline-flex items-center gap-2 text-sm px-3 py-1.5 rounded-md bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg.white/20 transition"
+            className="inline-flex items-center gap-2 text-sm px-3 py-1.5 rounded-md
+                       bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20 transition"
           >
-            <FiRefreshCcw
-              className="w-4 h-4"
-              aria-hidden="true"
-              focusable="false"
-            />
+            <FiRefreshCcw size={14} aria-hidden />
             {t("social.common.retry")}
           </button>
         </div>
       ) : null}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <PlatformCard
           loading={loading}
           title="YouTube"
           href="/youtube"
-          icon={
-            <FiYoutube
-              className="w-5 h-5"
-              aria-hidden="true"
-              focusable="false"
-            />
-          }
+          icon={<FiYoutube size={16} aria-hidden />}
           rows={
             stats?.youtube
               ? [
@@ -83,19 +81,13 @@ export default function SocialStats() {
                 ]
               : []
           }
-          accent="from-red-400 via-rose-600 to-red-700"
+          accent="from-red-500 via-rose-600 to-red-700"
         />
         <PlatformCard
           loading={loading}
           title="Instagram"
           href="/instagram"
-          icon={
-            <FiInstagram
-              className="w-5 h-5"
-              aria-hidden="true"
-              focusable="false"
-            />
-          }
+          icon={<FiInstagram size={16} aria-hidden />}
           rows={
             stats?.instagram
               ? [
@@ -110,7 +102,7 @@ export default function SocialStats() {
                 ]
               : []
           }
-          accent="from-pink-400 via-pink-600 to-pink-700"
+          accent="from-pink-500 via-pink-600 to-fuchsia-600"
         />
       </div>
 
@@ -120,7 +112,7 @@ export default function SocialStats() {
           {new Date(stats.updatedAt).toLocaleString("tr-TR")}
         </div>
       ) : null}
-    </AnimatedSection>
+    </Section>
   );
 }
 
@@ -133,7 +125,7 @@ function PlatformCard({
   accent,
 }: {
   title: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
   href: string;
   rows: [string, string][];
   loading: boolean;
@@ -145,21 +137,33 @@ function PlatformCard({
       blank
       href={href}
       aria-label={`${title} ${t("social.viewMore")}`}
-      className="group block relative rounded-2xl p-0 overflow-hidden bg-white ring-1 ring-black/5 shadow-sm hover:shadow-md dark:shadow-zinc-700 dark:bg-zinc-900 dark:ring-white/10 transition"
+      className="group block relative rounded-2xl overflow-hidden glass
+                 ring-1 ring-black/5 dark:ring-white/10
+                 hover:shadow-lg hover:ring-sky-500/40 transition-all
+                 dark:hover:shadow-[0_0_24px_-6px_rgba(56,189,248,0.4)]"
     >
-      <div className={`h-1.5 w-full ${accent} bg-linear-to-r opacity-90`} />
+      <div className={cn("h-1.5 w-full bg-linear-to-r opacity-90", accent)} />
+
       <div className="p-5">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="inline-flex items-center justify-center rounded-md px-2 py-1 text-xs font-medium bg-black/5 text-black/70 dark:bg-white/10 dark:text-white/80">
-              {icon}
-              <span className="ml-2">{title}</span>
-            </span>
-          </div>
+          <span
+            className="inline-flex items-center gap-2 rounded-md px-2 py-1 text-xs font-semibold
+                           bg-black/5 text-zinc-700 dark:bg-white/10 dark:text-zinc-200"
+          >
+            {icon}
+            <span>{title}</span>
+          </span>
+
           {loading ? (
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-black/40 dark:bg-white/50 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-black/70 dark:bg-white/80" />
+              <span
+                className="animate-ping absolute inline-flex h-full w-full rounded-full
+                               bg-zinc-400 dark:bg-white/50 opacity-75"
+              />
+              <span
+                className="relative inline-flex rounded-full h-2 w-2
+                               bg-zinc-700 dark:bg-white/80"
+              />
             </span>
           ) : null}
         </div>
@@ -171,14 +175,14 @@ function PlatformCard({
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 120, damping: 15 }}
-            className="space-y-3"
+            className="space-y-3 mt-4"
           >
             {rows.map(([l, v]) => (
               <div key={l} className="flex items-end justify-between">
-                <span className="text-sm text-zinc-600 dark:text-zinc-300">
+                <span className="text-sm text-zinc-600 dark:text-zinc-400">
                   {l}
                 </span>
-                <span className="text-xl font-extrabold tracking-tight">
+                <span className="text-xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50">
                   {v}
                 </span>
               </div>
@@ -190,20 +194,22 @@ function PlatformCard({
       <div className="px-5 pb-4">
         <div className="mt-3 h-px w-full bg-black/5 dark:bg-white/10" />
         <div className="mt-3 flex items-center justify-between">
-          <span className="text-xs opacity-60">{title}</span>
-          <span className="inline-flex items-center gap-1 text-sm font-medium opacity-80 group-hover:opacity-100">
+          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+            {title}
+          </span>
+          <span
+            className="inline-flex items-center gap-1 text-sm font-medium
+                           text-zinc-600 dark:text-zinc-300
+                           group-hover:text-sky-700 dark:group-hover:text-sky-300 transition-colors"
+          >
             {`${title} ${t("social.viewMore")}`}
             <FiArrowRight
-              className="w-4 h-4"
-              aria-hidden="true"
-              focusable="false"
+              size={14}
+              className="transition-transform group-hover:translate-x-0.5"
+              aria-hidden
             />
           </span>
         </div>
-      </div>
-
-      <div className="pointer-events-none absolute inset-0 -z-10 mask-[radial-gradient(60%_60%_at_80%_0%,black,transparent)]">
-        <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-black/5 dark:bg-white/5 blur-2xl transition-transform duration-300 group-hover:scale-110" />
       </div>
     </Link>
   );
@@ -211,16 +217,13 @@ function PlatformCard({
 
 function SkeletonRows() {
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 mt-4">
       {[0, 1].map((i) => (
         <div key={i} className="flex items-end justify-between">
           <span className="h-3 w-24 rounded animate-pulse bg-zinc-200/60 dark:bg-white/10" />
-          <span className="h-4 w-16 rounded animate-pulse bg-zinc-200/60 dark:bg.white/15" />
+          <span className="h-4 w-16 rounded animate-pulse bg-zinc-200/60 dark:bg-white/15" />
         </div>
       ))}
     </div>
   );
 }
-
-const fmt = (n: number) =>
-  Number.isFinite(n) ? new Intl.NumberFormat("tr-TR").format(n) : "0";

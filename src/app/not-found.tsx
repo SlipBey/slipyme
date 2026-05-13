@@ -1,5 +1,5 @@
-import { Metadata } from "next";
-import { tServer } from "@/lib/i18nServer";
+import type { Metadata } from "next";
+import { tServer } from "@/lib/i18n/server";
 import { buildMetadata } from "@/lib/seo";
 import NotFoundClient from "@/features/notfound/NotFoundClient";
 

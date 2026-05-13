@@ -1,71 +1,87 @@
 "use client";
 
-import { AnimatedSection } from "@/components/Globals/AnimatedSection";
 import { motion } from "framer-motion";
-import { fadeIn, fadeInUp } from "@/libs/animations";
 import Image from "next/image";
-import { Link } from "@/components/Globals/Link";
+import { Section } from "@/components/ui/Section";
+import { Link } from "@/components/ui/Link";
+import { fadeIn, fadeInUp, stagger } from "@/lib/motion";
 import { useI18n } from "@/lib/i18n";
+import { FiArrowRight } from "react-icons/fi";
 
-export default function ProjectsHero() {
+export function ProjectsHero() {
   const { t } = useI18n();
 
   return (
-    <AnimatedSection id="hero" className="py-8 md:py-12">
+    <Section id="projects-hero" className="py-8 md:py-12" variants={stagger}>
       <motion.div
         variants={fadeIn}
-        className="relative overflow-hidden rounded-2xl ring-1 ring-black/10 dark:ring-white/10
-                   bg-linear-to-r from-sky-900/80 via-sky-800/80 to-sky-700/80
-                   dark:from-[#0c1824] dark:via-[#0e1d2c] dark:to-[#0f2133]
-                   shadow-xl px-6 sm:px-8 lg:px-12 py-8 md:py-12
+        className="relative overflow-hidden rounded-3xl ring-1 ring-white/15 shadow-2xl
+                   bg-linear-to-br from-sky-700 via-sky-600 to-cyan-500
+                   dark:from-[#0a1929] dark:via-[#0c2236] dark:to-[#0a2c44]
+                   px-6 sm:px-10 lg:px-14 py-10 md:py-14
                    flex flex-col md:flex-row items-center justify-between gap-8 text-white"
       >
-        <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-sky-400 via-sky-300 to-sky-200/90" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full
+                     bg-white/15 blur-3xl"
+        />
 
-        <div className="flex-1">
+        <div className="flex-1 relative">
+          <motion.span
+            variants={fadeInUp}
+            className="inline-block typo-eyebrow text-white/80!"
+          >
+            {t("home.eyebrow")}
+          </motion.span>
           <motion.h1
             variants={fadeInUp}
-            className="typo-page-title text-white!"
+            className="typo-display text-3xl md:text-4xl lg:text-5xl text-white! mt-3"
           >
             {t("projectsPage.title")}
           </motion.h1>
           <motion.p
             variants={fadeInUp}
-            className="mt-2 typo-body text-white/90! max-w-3xl"
+            className="mt-3 text-white/85 max-w-2xl text-sm md:text-base"
           >
             {t("projectsPage.subtitle")}
           </motion.p>
 
           <motion.div variants={fadeInUp} className="mt-6">
-            <Link href="/contact">
-              <span
-                className="inline-flex items-center rounded-xl bg-white/95 text-sky-700 px-4 py-2 font-semibold
-                               ring-1 ring-white/70 hover:bg-white transition"
-              >
-                {t("navbar.button.project")}
-              </span>
+            <Link
+              href="/contact"
+              className="group inline-flex items-center gap-2 rounded-xl
+                         bg-white text-sky-700 px-5 py-2.5 font-semibold
+                         ring-1 ring-white/70 hover:bg-white/95 transition"
+            >
+              {t("navbar.button.project")}
+              <FiArrowRight
+                size={16}
+                aria-hidden
+                className="transition-transform group-hover:translate-x-1"
+              />
             </Link>
           </motion.div>
         </div>
 
         <motion.div
           variants={fadeInUp}
-          className="shrink-0 select-none"
-          whileHover={{ rotate: 3, scale: 1.03 }}
-          transition={{ type: "spring", stiffness: 200, damping: 12 }}
+          className="shrink-0 select-none relative"
+          whileHover={{ rotate: 3, scale: 1.04 }}
+          transition={{ type: "spring", stiffness: 200, damping: 14 }}
         >
           <Image
             src="/resimler/cikartmalar/telefon.png"
             alt=""
-            aria-hidden="true"
-            width={192}
-            height={192}
+            aria-hidden
+            width={224}
+            height={224}
             priority
-            sizes="(min-width:1024px) 192px, (min-width:768px) 144px, (min-width:640px) 96px, 48px"
-            className="w-12 sm:w-24 md:w-36 lg:w-48 object-contain drop-shadow-lg"
+            sizes="(min-width:1024px) 224px, (min-width:768px) 160px, 96px"
+            className="w-24 sm:w-32 md:w-40 lg:w-56 object-contain drop-shadow-2xl"
           />
         </motion.div>
       </motion.div>
-    </AnimatedSection>
+    </Section>
   );
 }

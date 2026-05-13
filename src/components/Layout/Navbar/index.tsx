@@ -1,12 +1,13 @@
-import { FC } from "react";
-import SocialAndLangBar from "./SocialAndLangBar";
-import MainNav from "./MainNav";
+"use client";
 
-const Navbar: FC = () => (
-  <header className="sm:sticky top-0 z-40 w-full">
-    <SocialAndLangBar />
-    <MainNav />
-  </header>
-);
+import { TopBar } from "./TopBar";
+import { MainNav } from "./MainNav";
 
-export default Navbar;
+export function Navbar() {
+  return (
+    <header className="sm:sticky top-0 z-40 w-full">
+      <TopBar />
+      <MainNav />
+    </header>
+  );
+}
