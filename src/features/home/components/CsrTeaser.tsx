@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { Section } from "@/components/ui/Section";
-import { CtaPanel } from "./CtaPanel";
 import { useI18n } from "@/lib/i18n";
+import { CtaPanel } from "@/features/home/components/CtaPanel";
 
 export function CsrTeaser() {
   const { t } = useI18n();

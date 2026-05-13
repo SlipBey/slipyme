@@ -1,7 +1,7 @@
 "use client";
 
 import { Section } from "@/components/ui/Section";
-import { CtaPanel } from "./CtaPanel";
+import { CtaPanel } from "@/features/home/components/CtaPanel";
 import { useI18n } from "@/lib/i18n";
 
 export function SocialTeaser() {

@@ -8,13 +8,12 @@ import { getServerLang } from "@/lib/i18n/server";
 import { ThemeProviderClient } from "@/providers/ThemeProvider";
 import { ToasterClient } from "@/providers/ToasterProvider";
 import Analytics from "@/providers/AnalyticsProvider";
-
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { MobileNav } from "@/components/layout/MobileNav";
 
 // @ts-ignore
 import "@/styles/globals.css";
+import { Footer } from "@/components/layout/Footer";
+import { Navbar } from "@/components/layout/Navbar";
 
 export const metadata = buildMetadata();
 export const viewport = { themeColor: SITE.themeColor };
