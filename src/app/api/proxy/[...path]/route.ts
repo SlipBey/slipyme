@@ -21,6 +21,7 @@ const HOP_BY_HOP = new Set([
   "upgrade",
   "host",
   "cookie",
+  "accept-encoding",
 ]);
 
 type RouteCtx = {
@@ -77,7 +78,8 @@ function buildHeaders(req: NextRequest) {
     }
   });
 
-  headers.set("accept", req.headers.get("accept") ?? "application/json");
+  headers.set("accept", "application/json");
+  headers.set("accept-encoding", "identity");
 
   if (API_TOKEN) {
     headers.set("authorization", `Bearer ${API_TOKEN}`);
